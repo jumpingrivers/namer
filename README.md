@@ -14,7 +14,7 @@ Available at your own risk from this repo using:
 remotes::install_github("lockedata/namer")
 ```
 
-## Example
+## Examples
 
 This is a basic example which shows you how to solve a common problem. The "test" folder first contains R Markdown files with unnamed chunks. After running `name_dir_chunks`, they're all named, with names using the filenames as basis.
 
@@ -26,6 +26,8 @@ file.edit("test/example1.Rmd")
 ```
 
 There's also `name_chunks` for use on a single R Markdown file.
+
+This is [a real life example](https://github.com/lockedata/pres-datascience/pull/1), result of running `namer::name_dir_chunks("pres")`. 
 
 ## Contributing
 
