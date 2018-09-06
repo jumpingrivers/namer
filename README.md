@@ -8,7 +8,7 @@ For context about _why_ you should name your R Markdown chunks, read [this blog 
 
 ## Installation
 
-You could, but shouldn't at the moment, install it via:
+Available at your own risk from this repo using:
 
 ``` r
 remotes::install_github("lockedata/namer")
