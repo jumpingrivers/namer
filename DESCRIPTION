@@ -1,5 +1,5 @@
 Package: namer
-Title: Names Your R Markdown Chunks.
+Title: Names Your R Markdown Chunks
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Steph",
@@ -22,5 +22,10 @@ Imports:
     fs,
     glue,
     magrittr,
-    purrr
+    purrr,
+    xml2,
+    commonmark
 RoxygenNote: 6.1.0
+Suggests: 
+    testthat,
+    covr

@@ -1,6 +1,7 @@
 # namer
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Travis build status](https://travis-ci.org/lockedata/namer.svg?branch=master)](https://travis-ci.org/lockedata/namer) [![Coverage status](https://coveralls.io/repos/github/lockedata/namer/badge.svg)](https://coveralls.io/r/lockedata/namer?branch=master)
+
 
 The goal of namer is to name the chunks of R Markdown files. It's your safety net when you've (willingly) forgotten to name most chunks of all R Markdown files in a folder. `namer` does *not* give meaningful labels to your chunks, but it gives them labels that won't change depending on their position like the automatic `knitr:::unnamed_chunk` function does when knitting. So you can e.g. shuffle your chunks and not loose their cache!
 
