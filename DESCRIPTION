@@ -20,5 +20,7 @@ LazyData: true
 Imports: 
     stringr,
     fs,
-    glue
+    glue,
+    magrittr,
+    purrr
 RoxygenNote: 6.1.0
