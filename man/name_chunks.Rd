@@ -7,7 +7,7 @@
 name_chunks(path)
 }
 \arguments{
-\item{path}{}
+\item{path}{Path to file}
 }
 \description{
 Name unnamed chunks in a single file using the filename with extension stripped as basis.
@@ -17,5 +17,6 @@ Name unnamed chunks in a single file using the filename with extension stripped 
 file.copy(system.file("examples", "example1.Rmd", package = "namer"),
           "test.Rmd")
 name_chunks("test.Rmd")
+file.edit("test.Rmd")
 }
 }

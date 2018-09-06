@@ -8,7 +8,7 @@ For context about _why_ you should name your R Markdown chunks, read [this blog 
 
 ## Installation
 
-You could, but shouldn't at the moment, install it via.
+You could, but shouldn't at the moment, install it via:
 
 ``` r
 remotes::install_github("lockedata/namer")
@@ -16,11 +16,16 @@ remotes::install_github("lockedata/namer")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to solve a common problem. The "test" folder first contains R Markdown files with unnamed chunks. After running `name_dir_chunks`, they're all named, with names using the filenames as basis.
 
 ``` r
-## basic example code
+fs::dir_copy(system.file("examples", package = "namer"),
+            "test")
+name_dir_chunks("test")
+file.edit("test/example1.Rmd")
 ```
+
+There's also `name_chunks` for use on a single R Markdown file.
 
 ## Contributing
 
