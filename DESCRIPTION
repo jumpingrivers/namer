@@ -17,3 +17,8 @@ Description: It names the R Markdown chunks of files based on either the filenam
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    stringr,
+    fs,
+    glue
+RoxygenNote: 6.1.0
