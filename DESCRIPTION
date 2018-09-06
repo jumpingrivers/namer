@@ -1,0 +1,19 @@
+Package: namer
+Title: Names Your R Markdown Chunks.
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Steph",
+             family = "Locke",
+             role = c("aut", "cre"),
+             email = "steph@itsalocke.com"),
+      person(given = "Maëlle",
+             family = "Salmon",
+             role = "aut",
+             email = "maelle.salmon@yahoo.se"),
+      person(given = "Locke Data",
+             role = "fnd",
+             comment = "https://itsalocke.com"))
+Description: It names the R Markdown chunks of files based on either the filename, slug from the YAML header, or random human-readable IDs.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
