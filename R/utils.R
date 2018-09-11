@@ -53,15 +53,6 @@ digest_chunk_header <- function(chunk_header_index,
   # keep index
   chunk_info$index <- chunk_header_index
 
-  # use the language for all row
-  chunk_info$language <- chunk_info$language[!is.na(chunk_info$language)]
-
-  # use the name for all rows if any name
-  if(any(!is.na(chunk_info$name))){
-
-    chunk_info$name <- chunk_info$name[!is.na(chunk_info$name)]
-  }
-
   chunk_info
 }
 
