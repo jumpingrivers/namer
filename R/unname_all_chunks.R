@@ -1,6 +1,8 @@
-#' Unname chunks in a single file
+#' @title Unname chunks in a single file
 #'
-#' Unname all chunks except the setup chunk, in a single file
+#' @description Unname all chunks except the setup chunk, in a single file
+#'
+#' @inherit name_chunks details
 #'
 #' @param path Path to file
 #'

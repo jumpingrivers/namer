@@ -1,6 +1,10 @@
-#' Name chunks in a single file
+#' @title Name chunks in a single file
 #'
-#' Name unnamed chunks in a single file using the filename with extension stripped as basis.
+#' @description Name unnamed chunks in a single file using the filename with extension stripped as basis.
+#'
+#' @details When using namer, please check the edits
+#'  before pushing them to your code base. Such automatic
+#'  chunk labelling is best paired with version control.
 #'
 #' @param path Path to file
 #'
@@ -84,9 +88,11 @@ Maybe namer::unname_chunks before running name_chunks.")
   return(invisible("TRUE"))
 }
 
-#' Name chunks of all Rmds in a dir
+#' @title  Name chunks of all Rmds in a dir
 #'
-#' Name unnamed chunks in a dir using the filenames with extension stripped as basis.
+#' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
+#'
+#' @inherit name_chunks details
 #'
 #' @param dir Path to folder
 #'

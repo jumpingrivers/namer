@@ -12,6 +12,11 @@ name_chunks(path)
 \description{
 Name unnamed chunks in a single file using the filename with extension stripped as basis.
 }
+\details{
+When using namer, please check the edits
+ before pushing them to your code base. Such automatic
+ chunk labelling is best paired with version control.
+}
 \examples{
 \dontrun{
 file.copy(system.file("examples", "example1.Rmd", package = "namer"),

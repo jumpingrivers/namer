@@ -12,6 +12,11 @@ name_dir_chunks(dir)
 \description{
 Name unnamed chunks in a dir using the filenames with extension stripped as basis.
 }
+\details{
+When using namer, please check the edits
+ before pushing them to your code base. Such automatic
+ chunk labelling is best paired with version control.
+}
 \examples{
 \dontrun{
 fs::dir_copy(system.file("examples", package = "namer"),

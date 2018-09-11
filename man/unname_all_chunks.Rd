@@ -12,6 +12,11 @@ unname_all_chunks(path)
 \description{
 Unname all chunks except the setup chunk, in a single file
 }
+\details{
+When using namer, please check the edits
+ before pushing them to your code base. Such automatic
+ chunk labelling is best paired with version control.
+}
 \examples{
 \dontrun{
 file.copy(system.file("examples", "example4.Rmd", package = "namer"),
