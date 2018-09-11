@@ -19,7 +19,8 @@ transform_params <- function(params){
 
 parse_label <- function(label){
   label %>%
-    stringr::str_split(" ",
+    stringr::str_replace(" ", "\\/") %>%
+    stringr::str_split("\\/",
                        simplify = TRUE) -> language_name
 
   if(ncol(language_name) == 1){
