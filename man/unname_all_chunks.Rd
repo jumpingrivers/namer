@@ -10,7 +10,7 @@ unname_all_chunks(path)
 \item{path}{Path to file}
 }
 \description{
-Unname all chunks in a single file
+Unname all chunks except the setup chunk, in a single file
 }
 \examples{
 \dontrun{

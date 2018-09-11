@@ -1,6 +1,6 @@
 #' Unname chunks in a single file
 #'
-#' Unname all chunks in a single file
+#' Unname all chunks except the setup chunk, in a single file
 #'
 #' @param path Path to file
 #'
