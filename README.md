@@ -30,7 +30,7 @@ name_dir_chunks("test")
 file.edit("test/example1.Rmd")
 ```
 
-There's also `name_chunks` for use on a single R Markdown file.
+There's also `name_chunks` for use on a single R Markdown file; and `unname_all_chunks` to unname all chunks of a single R Markdown file which can be useful when cleaning your chunk labels.
 
 **When using `namer`, please check the edits before pushing them to your code base. Such automatic chunk labelling is best paired with [version control](http://happygitwithr.com/).**
 
