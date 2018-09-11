@@ -31,4 +31,8 @@ RoxygenNote: 6.1.0
 Suggests: 
     testthat,
     covr,
-    rmarkdown
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
+URL: https://github.com/lockedata/namer
+BugReports: https://github.com/lockedata/namer/issues
