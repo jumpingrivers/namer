@@ -32,6 +32,8 @@ file.edit("test/example1.Rmd")
 
 There's also `name_chunks` for use on a single R Markdown file.
 
+**When using `namer`, please check the edits before pushing them to your code base. Such automatic chunk labelling is best paired with [version control](http://happygitwithr.com/).**
+
 ## Contributing
 
 Wanna report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md). 
