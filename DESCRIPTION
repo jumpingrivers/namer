@@ -25,7 +25,8 @@ Imports:
     purrr,
     xml2,
     commonmark,
-    tibble
+    tibble,
+    dplyr
 RoxygenNote: 6.1.0
 Suggests: 
     testthat,
