@@ -3,9 +3,13 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Travis build status](https://travis-ci.org/lockedata/namer.svg?branch=master)](https://travis-ci.org/lockedata/namer) [![Coverage status](https://coveralls.io/repos/github/lockedata/namer/badge.svg)](https://coveralls.io/r/lockedata/namer?branch=master)
 
 
-The goal of namer is to name the chunks of R Markdown files. It's your safety net when you've (willingly) forgotten to name most chunks of all R Markdown files in a folder. `namer` does *not* give meaningful labels to your chunks, but it gives them labels that won't change depending on their position like the automatic `knitr:::unnamed_chunk` function does when knitting. So you can e.g. shuffle your chunks and not loose their cache!
+The goal of namer is to name the chunks of R Markdown files. It's your safety net when you've (willingly) forgotten to name most chunks of all R Markdown files in a folder. `namer` does *not* give meaningful labels to your chunks, but it gives them labels that won't change depending on their position like the automatic `knitr:::unnamed_chunk` function does when knitting. So you can e.g. shuffle your chunks and not loose their cache, or more easily debug over a whole folder!
 
 For context about _why_ you should name your R Markdown chunks, read [this blog post](https://masalmon.eu/2017/08/08/chunkpets/).
+
+The screenshot below is [a real life example](https://github.com/lockedata/pres-datascience/pull/1), result of running `namer::name_dir_chunks("pres")`.
+
+[![Example of use](README_files/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files)
 
 ## Installation
 
@@ -15,7 +19,7 @@ Available at your own risk from this repo using:
 remotes::install_github("lockedata/namer")
 ```
 
-## Examples
+## Use
 
 This is a basic example which shows you how to solve a common problem. The "test" folder first contains R Markdown files with unnamed chunks. After running `name_dir_chunks`, they're all named, with names using the filenames as basis.
 
@@ -27,8 +31,6 @@ file.edit("test/example1.Rmd")
 ```
 
 There's also `name_chunks` for use on a single R Markdown file.
-
-This is [a real life example](https://github.com/lockedata/pres-datascience/pull/1), result of running `namer::name_dir_chunks("pres")`. 
 
 ## Contributing
 
