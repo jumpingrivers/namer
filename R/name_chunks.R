@@ -21,6 +21,10 @@ name_chunks <- function(path){
   chunk_header_indices <- which(stringr::str_detect(lines,
                                        "```\\{[a-zA-Z0-9]"))
 
+  # early exit if no chunks
+  if(length(chunk_header_indices) == 0){
+    return(invisible("TRUE"))
+  }
   # parse these chunk headers
   chunk_headers_info <- purrr::map_df(chunk_header_indices,
                                       digest_chunk_header,
@@ -77,7 +81,7 @@ Maybe namer::unname_chunks before running name_chunks.")
     # save file
     writeLines(lines, path)
 }
-
+  return(invisible("TRUE"))
 }
 
 #' Name chunks of all Rmds in a dir
