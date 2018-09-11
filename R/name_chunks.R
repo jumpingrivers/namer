@@ -33,6 +33,7 @@ name_chunks <- function(path){
   # count unnamed chunks
   no_unnamed <- length(unique(unnamed$index))
 
+
   # act only if needed!
   if(no_unnamed > 0){
     # create new chunk names
@@ -42,6 +43,15 @@ name_chunks <- function(path){
     new_chunk_names <- as.character(new_chunk_names)
     # and write to which line they correspond
     names(new_chunk_names) <- unique(unnamed$index)
+
+    # unique names?
+    existing_names <- unique(chunk_headers_info$name)
+    existing_names <- existing_names[!is.na(existing_names)]
+
+    if(any(new_chunk_names %in% existing_names)){
+      new_chunk_names[new_chunk_names %in% existing_names] <-
+        glue::glue("{new_chunk_names[new_chunk_names %in% existing_names]}-bis")
+    }
 
     # add name to original information
     # about unnamed chunk
@@ -53,6 +63,16 @@ name_chunks <- function(path){
     newlines <- re_write_headers(nownamed)
     # replace original lines
     lines[newlines$index] <- newlines$line
+
+    # re-get chunk names
+    new_chunk_headers_info <- purrr::map_df(chunk_header_indices,
+                                        digest_chunk_header,
+                                        lines)
+    if(length(unique(new_chunk_headers_info$name)) != length(chunk_header_indices)){
+      stop("Despite our efforts we'd be creating duplicate names.
+Had you run our script on your R Markdown before?
+Maybe namer::unname_chunks before running name_chunks.")
+    }
 
     # save file
     writeLines(lines, path)

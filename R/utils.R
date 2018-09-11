@@ -76,7 +76,10 @@ re_write_headers <- function(info_df){
                      options = stringr::str_remove_all(options, ", NA=NA"),
                      line = glue::glue("```{(language[1]) (name[1])(options)}",
                                        .open = "(",
-                                       .close = ")")) %>%
+                                       .close = ")"),
+                     # for when no name
+                     line = stringr::str_replace_all(line, " \\,", ","),
+                     line = stringr::str_remove_all(line, " NA")) %>%
     dplyr::select(- options)
 }
 

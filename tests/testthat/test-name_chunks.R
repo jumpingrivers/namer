@@ -8,3 +8,11 @@ test_that("renaming works", {
     extract_chunks_names("test.Rmd") != ""))
   file.remove("test.Rmd")
 })
+
+test_that("unnaming is advised when needed", {
+  file.copy(system.file("examples", "example4.Rmd", package = "namer"),
+            "example4.Rmd")
+
+  expect_error(name_chunks("example4.Rmd"))
+  file.remove("example4.Rmd")
+})

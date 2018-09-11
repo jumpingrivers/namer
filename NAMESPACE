@@ -3,4 +3,5 @@
 export("%>%")
 export(name_chunks)
 export(name_dir_chunks)
+export(unname_all_chunks)
 importFrom(magrittr,"%>%")
