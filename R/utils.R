@@ -1,33 +1,36 @@
 # not elegant, given a part of a header,
 # transform it into the row of a tibble
-parse_chunk_part <- function(chunk_header_part){
-  # options part
-  if(stringr::str_detect(chunk_header_part,
-                         "=")){
-    chunk_header_part %>%
-      stringr::str_split("=",
-                         simplify = TRUE) -> options
+transform_params <- function(params){
+  params_string <- try(eval(parse(text = paste('alist(', quote_label(params), ')'))),
+               silent = TRUE)
 
-    tibble::tibble(option = trimws(options[1, 1]),
-                   option_value = trimws(options[1, 2]))
-  }else{
-    # chunk language and name
-    chunk_header_part %>%
-      stringr::str_split(" ",
-                         simplify = TRUE) -> language_name
-
-    if(ncol(language_name) == 1){
-      tibble::tibble(language = trimws(language_name[1, 1]),
-                     name = NA)
-    }else{
-      tibble::tibble(language = trimws(language_name[1, 1]),
-                     name = trimws(language_name[1, 2]))
-
-    }
-
+  if(inherits(params_string, "try-error")){
+    params <- stringr::str_replace(params, " ", ", ")
+    params_string <- eval(parse(text = paste('alist(', quote_label(params), ')')))
   }
 
+  label <- parse_label(params_string[[1]])
+
+  tibble::tibble(language = label$language,
+                 name = label$name,
+                 options = stringr::str_remove(params, params_string[[1]]))
 }
+
+
+parse_label <- function(label){
+  label %>%
+    stringr::str_split(" ",
+                       simplify = TRUE) -> language_name
+
+  if(ncol(language_name) == 1){
+    tibble::tibble(language = trimws(language_name[1, 1]),
+                   name = NA)
+  }else{
+    tibble::tibble(language = trimws(language_name[1, 1]),
+                   name = trimws(language_name[1, 2]))
+  }
+}
+
 # from a chunk header
 # to a tibble with language, name, option, option values
 parse_chunk_header <- function(chunk_header){
@@ -35,30 +38,9 @@ parse_chunk_header <- function(chunk_header){
   chunk_header %>%
     stringr::str_remove_all("```\\{") %>%
     stringr::str_remove_all("\\}") %>%
-    # split by comma
-    stringr::str_split("\\,",
-                       simplify = TRUE) %>%
-    as.character() %>%
-    trimws() %>%
     # parse each part
-    purrr::map_df(parse_chunk_part) -> info
+    transform_params()
 
-  # chunks à la "```{r eval = FALSE}"
-  if(!"language" %in% names(info)){
-    lang_option <- info$option[stringr::str_detect(info$option,
-                                                   " ")]
-
-    info$option[info$option == lang_option] <-
-      stringr::str_remove(lang_option, "^[a-zA-Z0-9]* ")
-
-    info$language <-
-      stringr::str_remove(lang_option, " [a-zA-Z0-9]*$")
-
-    info$name <- NA
-
-  }
-
-  info
 }
 
 digest_chunk_header <- function(chunk_header_index,
@@ -87,17 +69,12 @@ digest_chunk_header <- function(chunk_header_index,
 re_write_headers <- function(info_df){
   info_df %>%
     dplyr::group_by(index) %>%
-    dplyr::summarise(options = paste0(", ", glue::glue_collapse(
-                                        glue::glue("{option}={option_value}"),
-                                                          sep = ", ")),
-                     options = stringr::str_remove_all(options, ", NA=NA"),
-                     line = glue::glue("```{(language[1]) (name[1])(options)}",
+    dplyr::summarise(line = glue::glue("```{(language[1]) (name[1])(options)}",
                                        .open = "(",
                                        .close = ")"),
                      # for when no name
                      line = stringr::str_replace_all(line, " \\,", ","),
-                     line = stringr::str_remove_all(line, " NA")) %>%
-    dplyr::select(- options)
+                     line = stringr::str_remove_all(line, " NA"))
 }
 
 
@@ -129,4 +106,19 @@ extract_chunks_names <- function(path){
   purrr::map_chr(chunks, extract_label)
 
 
+}
+
+# from knitr
+# https://github.com/yihui/knitr/blob/2b3e617a700f6d236e22873cfff6cbc3568df568/R/parser.R#L148
+# quote the chunk label if necessary
+quote_label = function(x) {
+  x = gsub('^\\s*,?', '', x)
+  if (grepl('^\\s*[^\'"](,|\\s*$)', x)) {
+    # <<a,b=1>>= ---> <<'a',b=1>>=
+    x = gsub('^\\s*([^\'"])(,|\\s*$)', "'\\1'\\2", x)
+  } else if (grepl('^\\s*[^\'"](,|[^=]*(,|\\s*$))', x)) {
+    # <<abc,b=1>>= ---> <<'abc',b=1>>=
+    x = gsub('^\\s*([^\'"][^=]*)(,|\\s*$)', "'\\1'\\2", x)
+  }
+  x
 }

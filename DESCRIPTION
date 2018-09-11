@@ -14,7 +14,7 @@ Authors@R:
              role = "fnd",
              comment = "https://itsalocke.com"))
 Description: It names the R Markdown chunks of files based on either the filename, slug from the YAML header, or random human-readable IDs.
-License: MIT + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 

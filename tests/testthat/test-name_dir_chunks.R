@@ -1,6 +1,7 @@
 context("test-name_dir_chunks")
 
 test_that("renaming works for a dir", {
+  fs::dir_delete("test")
   fs::dir_copy(system.file("examples", package = "namer"),
             "test")
   fs::file_delete(file.path("test", "example4.Rmd"))
