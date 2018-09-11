@@ -1,6 +1,7 @@
-
-
+# not elegant, given a part of a header,
+# transform it into the row of a tibble
 parse_chunk_part <- function(chunk_header_part){
+  # options part
   if(stringr::str_detect(chunk_header_part,
                          "=")){
     chunk_header_part %>%
@@ -10,6 +11,7 @@ parse_chunk_part <- function(chunk_header_part){
     tibble::tibble(option = trimws(options[1, 1]),
                    option_value = trimws(options[1, 2]))
   }else{
+    # chunk language and name
     chunk_header_part %>%
       stringr::str_split(" ",
                          simplify = TRUE) -> language_name
@@ -26,18 +28,58 @@ parse_chunk_part <- function(chunk_header_part){
   }
 
 }
-
+# from a chunk header
+# to a tibble with language, name, option, option values
 parse_chunk_header <- function(chunk_header){
-  # remove the boundaries
+  # remove boundaries
   chunk_header %>%
     stringr::str_remove_all("```\\{") %>%
     stringr::str_remove_all("\\}") %>%
+    # split by comma
     stringr::str_split("\\,",
                        simplify = TRUE) %>%
     as.character() %>%
     trimws() %>%
+    # parse each part
     purrr::map_df(parse_chunk_part)
 }
+
+digest_chunk_header <- function(chunk_header_index,
+                                lines){
+  # parse the chunk header
+  lines[chunk_header_index] %>%
+    parse_chunk_header -> chunk_info
+
+  # keep index
+  chunk_info$index <- chunk_header_index
+
+  # use the language for all row
+  chunk_info$language <- chunk_info$language[!is.na(chunk_info$language)]
+
+  # use the name for all rows if any name
+  if(any(!is.na(chunk_info$name))){
+
+    chunk_info$name <- chunk_info$name[!is.na(chunk_info$name)]
+  }
+
+  chunk_info
+}
+
+# helper to go from tibble with chunk info
+# to header to write in R Markdown
+re_write_headers <- function(info_df){
+  info_df %>%
+    dplyr::group_by(index) %>%
+    dplyr::summarise(options = paste0(", ", glue::glue_collapse(
+                                        glue::glue("{option}={option_value}"),
+                                                          sep = ", ")),
+                     options = stringr::str_remove_all(options, ", NA=NA"),
+                     line = glue::glue("```{(language[1]) (name[1])(options)}",
+                                       .open = "(",
+                                       .close = ")")) %>%
+    dplyr::select(- options)
+}
+
 
 extract_r_chunks <- function(path){
   path %>%
