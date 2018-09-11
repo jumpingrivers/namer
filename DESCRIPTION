@@ -24,7 +24,8 @@ Imports:
     magrittr,
     purrr,
     xml2,
-    commonmark
+    commonmark,
+    tibble
 RoxygenNote: 6.1.0
 Suggests: 
     testthat,
