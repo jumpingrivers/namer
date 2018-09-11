@@ -19,6 +19,10 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
+```{r eval = FALSE}
+summary(cars)
+```
+
 ```{r example2-1}
 summary(cars)
 ```

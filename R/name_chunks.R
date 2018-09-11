@@ -97,5 +97,10 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' }
 name_dir_chunks <- function(dir){
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
-  purrr::walk(rmds, name_chunks)
+  purrr::walk(rmds, chatty_name_chunks)
+}
+
+chatty_name_chunks <- function(path){
+  message(glue::glue("Scanning {path}..."))
+  name_chunks(path)
 }

@@ -41,7 +41,24 @@ parse_chunk_header <- function(chunk_header){
     as.character() %>%
     trimws() %>%
     # parse each part
-    purrr::map_df(parse_chunk_part)
+    purrr::map_df(parse_chunk_part) -> info
+
+  # chunks à la "```{r eval = FALSE}"
+  if(!"language" %in% names(info)){
+    lang_option <- info$option[stringr::str_detect(info$option,
+                                                   " ")]
+
+    info$option[info$option == lang_option] <-
+      stringr::str_remove(lang_option, "^[a-zA-Z0-9]* ")
+
+    info$language <-
+      stringr::str_remove(lang_option, " [a-zA-Z0-9]*$")
+
+    info$name <- NA
+
+  }
+
+  info
 }
 
 digest_chunk_header <- function(chunk_header_index,
