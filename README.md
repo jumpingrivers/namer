@@ -13,7 +13,7 @@ The screenshot below is [a real life example](https://github.com/lockedata/pres-
 
 ## Installation
 
-Available at your own risk from this repo using:
+Install the dev version from this repo using:
 
 ``` r
 remotes::install_github("lockedata/namer")
