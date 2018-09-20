@@ -13,7 +13,7 @@ Authors@R:
       person(given = "Locke Data",
              role = "fnd",
              comment = "https://itsalocke.com"))
-Description: It names the R Markdown chunks of files based on either the filename, slug from the YAML header, or random human-readable IDs.
+Description: It names the R Markdown chunks of files based on the filename.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
