@@ -21,18 +21,13 @@ name_chunks <- function(path){
   # read the whole file
   lines <- readLines(path)
 
-  # find which lines are chunk starts
-  chunk_header_indices <- which(stringr::str_detect(lines,
-                                       "```\\{[a-zA-Z0-9]"))
+  # get chunk info
+  chunk_headers_info <- get_chunk_info(lines)
 
-  # early exit if no chunks
-  if(length(chunk_header_indices) == 0){
+  # early exit if no chunk
+  if(is.null(chunk_headers_info)){
     return(invisible("TRUE"))
   }
-  # parse these chunk headers
-  chunk_headers_info <- purrr::map_df(chunk_header_indices,
-                                      digest_chunk_header,
-                                      lines)
 
   # filter the one corresponding to unnamed chunks
   chunk_headers_info %>%
@@ -73,10 +68,8 @@ name_chunks <- function(path){
     lines[newlines$index] <- newlines$line
 
     # re-get chunk names
-    new_chunk_headers_info <- purrr::map_df(chunk_header_indices,
-                                        digest_chunk_header,
-                                        lines)
-    if(length(unique(new_chunk_headers_info$name)) != length(chunk_header_indices)){
+    new_chunk_headers_info <- get_chunk_info(lines)
+    if(length(unique(new_chunk_headers_info$name)) != nrow(new_chunk_headers_info)){
       stop("Despite our efforts we'd be creating duplicate names.
 Had you run our script on your R Markdown before?
 Maybe namer::unname_chunks before running name_chunks.")

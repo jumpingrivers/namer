@@ -19,14 +19,15 @@ unname_all_chunks <- function(path){
   # read the whole file
   lines <- readLines(path)
 
-  # find which lines are chunk starts
-  chunk_header_indices <- which(stringr::str_detect(lines,
-                                                    "```\\{[a-zA-Z0-9]"))
+  # get chunk info
+  chunk_headers_info <- get_chunk_info(lines)
 
-  # parse these chunk headers
-  chunk_headers_info <- purrr::map_df(chunk_header_indices,
-                                      digest_chunk_header,
-                                      lines)
+  # early exit if no chunk
+  if(is.null(chunk_headers_info)){
+    return(invisible("TRUE"))
+  }
+
+  # preserve the setup label, delete the others
   chunk_headers_info$name[chunk_headers_info$name != "setup"] <- ""
 
   newlines <- re_write_headers(chunk_headers_info)

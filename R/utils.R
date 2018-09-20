@@ -69,35 +69,20 @@ re_write_headers <- function(info_df){
                      line = stringr::str_remove_all(line, " NA"))
 }
 
+# helper to create a data.frame of chunk info
+get_chunk_info <- function(lines){
+  # find which lines are chunk starts
+  chunk_header_indices <- which(stringr::str_detect(lines,
+                                                    "```\\{[a-zA-Z0-9]"))
 
-extract_r_chunks <- function(path){
-  path %>%
-    readLines() %>%
-    commonmark::markdown_xml() %>%
-    xml2::read_xml() %>%
-    xml2::xml_find_all("//d1:code_block", xml2::xml_ns(.))  %>%
-    # select chunks with language info
-    .[xml2::xml_has_attr(., "info")] %>%
-    # select R chunks
-    .[stringr::str_detect(xml2::xml_attr(., "info"), "\\{r")]
-}
-
-extract_label <- function(chunk){
-  chunk %>%
-    xml2::xml_attr("info") %>%
-    stringr::str_remove("\\{[a-zA-Z0-9]*") %>%
-    trimws() %>%
-    stringr::str_extract("^[a-zA-Z0-9]*(-[0-9]*)?") %>%
-    trimws() %>%
-    stringr::str_replace_na(replacement = "")
-}
-
-extract_chunks_names <- function(path){
-  chunks <- extract_r_chunks(path)
-
-  purrr::map_chr(chunks, extract_label)
-
-
+  # null if no chunks
+  if(length(chunk_header_indices) == 0){
+    return(NULL)
+  }
+  # parse these chunk headers
+  purrr::map_df(chunk_header_indices,
+                digest_chunk_header,
+                lines)
 }
 
 # from knitr

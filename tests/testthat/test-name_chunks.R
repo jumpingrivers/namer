@@ -4,8 +4,10 @@ test_that("renaming works", {
   file.copy(system.file("examples", "example1.Rmd", package = "namer"),
             "test.Rmd")
   name_chunks("test.Rmd")
+  lines <- readLines("test.Rmd")
+  chunk_info <- get_chunk_info(lines)
   expect_true(all(
-    extract_chunks_names("test.Rmd") != ""))
+    chunk_info$name != ""))
   file.remove("test.Rmd")
 })
 

@@ -23,16 +23,15 @@ Imports:
     glue,
     magrittr,
     purrr,
-    xml2,
-    commonmark,
     tibble,
     dplyr
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.0.9000
 Suggests: 
     testthat,
     covr,
     rmarkdown,
-    knitr
+    knitr,
+    UNF
 VignetteBuilder: knitr
 URL: https://github.com/lockedata/namer
 BugReports: https://github.com/lockedata/namer/issues
