@@ -7,7 +7,7 @@ The goal of namer is to name the chunks of R Markdown files. It's your safety ne
 
 For context about _why_ you should name your R Markdown chunks, read [this blog post](https://masalmon.eu/2017/08/08/chunkpets/).
 
-The screenshot below is [a real life example](https://github.com/lockedata/pres-datascience/pull/1), result of running `namer::name_dir_chunks("pres")`.
+The screenshot below is [a real life example](https://github.com/lockedata/pres-datascience/pull/1), result of running `namer::name_dir_chunks("pres")`. In each of the files in the dir "pres", it labelled chunks using the filename and numbers.
 
 [![Example of use](README_files/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files)
 
