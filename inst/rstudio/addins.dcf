@@ -1,0 +1,4 @@
+Name: namer - label Rmd chunks
+Description: labels unnamed chunk of the active R Markdown document, based on the filename.
+Binding: name_chunks_addin
+Interactive: false

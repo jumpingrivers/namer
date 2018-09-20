@@ -32,6 +32,8 @@ file.edit("test/example1.Rmd")
 
 There's also `name_chunks` for use on a single R Markdown file; and `unname_all_chunks` to unname all chunks of a single R Markdown file which can be useful when cleaning your chunk labels.
 
+If you're working with RStudio, installing the package will have installed an addin for labelling chunks of *the currenly active R Markdown document*.
+
 **When using `namer`, please check the edits before pushing them to your code base. Such automatic chunk labelling is best paired with [version control](http://happygitwithr.com/).**
 
 ## Contributing

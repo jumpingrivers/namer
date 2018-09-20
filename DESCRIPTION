@@ -24,7 +24,8 @@ Imports:
     magrittr,
     purrr,
     tibble,
-    dplyr
+    dplyr,
+    rstudioapi
 RoxygenNote: 6.1.0.9000
 Suggests: 
     testthat,
