@@ -1,6 +1,6 @@
 Package: namer
 Title: Names Your R Markdown Chunks
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Steph",
              family = "Locke",
