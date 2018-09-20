@@ -31,7 +31,7 @@ name_chunks <- function(path){
 
   # filter the one corresponding to unnamed chunks
   chunk_headers_info %>%
-    dplyr::filter(is.na(name)) -> unnamed
+    dplyr::filter(is.na(.data$name)) -> unnamed
 
   # count unnamed chunks
   no_unnamed <- length(unique(unnamed$index))
@@ -59,8 +59,9 @@ name_chunks <- function(path){
     # add name to original information
     # about unnamed chunk
     nownamed <- unnamed %>%
-      dplyr::group_by(index) %>%
-      dplyr::mutate(name = new_chunk_names[as.character(index)])
+      dplyr::group_by(.data$index) %>%
+      dplyr::mutate(name = new_chunk_names[as.character(.data$index)]) %>%
+      dplyr::ungroup()
 
     # re-write the header of these chunks
     newlines <- re_write_headers(nownamed)

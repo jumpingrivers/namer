@@ -60,13 +60,13 @@ digest_chunk_header <- function(chunk_header_index,
 # to header to write in R Markdown
 re_write_headers <- function(info_df){
   info_df %>%
-    dplyr::group_by(index) %>%
+    dplyr::group_by(.data$index) %>%
     dplyr::summarise(line = glue::glue("```{(language[1]) (name[1])(options)}",
                                        .open = "(",
                                        .close = ")"),
                      # for when no name
-                     line = stringr::str_replace_all(line, " \\,", ","),
-                     line = stringr::str_remove_all(line, " NA"))
+                     line = stringr::str_replace_all(.data$line, " \\,", ","),
+                     line = stringr::str_remove_all(.data$line, " NA"))
 }
 
 # helper to create a data.frame of chunk info
@@ -99,3 +99,6 @@ quote_label = function(x) {
   }
   x
 }
+
+
+globalVariables(".data")
