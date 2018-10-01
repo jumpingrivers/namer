@@ -8,4 +8,8 @@
 
 ## Release summary
 
-This is a new release.
+This is a re-submission taking into account your feedback. Thanks a lot!
+
+* Now 'R Markdown' is in single quotes in Title and Description.
+
+* Examples are now wrapped in \donttest{} and use tempdir()

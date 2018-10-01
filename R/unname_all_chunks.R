@@ -9,11 +9,13 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' temp_file_path <- file.path(tempdir(), "test.Rmd")
 #' file.copy(system.file("examples", "example4.Rmd", package = "namer"),
-#'           "test.Rmd")
-#' unname_all_chunks("test.Rmd")
-#' file.edit("test.Rmd")
+#'           temp_file_path)
+#' unname_all_chunks(temp_file_path)
+#' file.edit(temp_file_path)
+#' file.remove(temp_file_path)
 #' }
 unname_all_chunks <- function(path){
   # read the whole file

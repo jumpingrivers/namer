@@ -18,10 +18,12 @@ When using namer, please check the edits
  chunk labelling is best paired with version control.
 }
 \examples{
-\dontrun{
+\donttest{
+temp_file_path <- file.path(tempdir(), "test.Rmd")
 file.copy(system.file("examples", "example1.Rmd", package = "namer"),
-          "test.Rmd")
-name_chunks("test.Rmd")
-file.edit("test.Rmd")
+          temp_file_path)
+name_chunks(temp_file_path)
+file.edit(temp_file_path)
+file.remove(temp_file_path)
 }
 }

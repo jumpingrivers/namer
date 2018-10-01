@@ -18,10 +18,14 @@ When using namer, please check the edits
  chunk labelling is best paired with version control.
 }
 \examples{
-\dontrun{
+\donttest{
+temp_dir <- tempdir()
 fs::dir_copy(system.file("examples", package = "namer"),
-            "test")
-name_dir_chunks("test")
-file.edit("test/example1.Rmd")
+            temp_dir)
+ # this is an example file that'd fail
+fs::file_delete(file.path(temp_dir, "example4.Rmd"))
+name_dir_chunks(temp_dir)
+file.edit(file.path(temp_dir, "example1.Rmd"))
+fs::dir_delete(temp_dir)
 }
 }
