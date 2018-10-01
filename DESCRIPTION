@@ -1,6 +1,6 @@
 Package: namer
-Title: Names Your R Markdown Chunks
-Version: 0.1.0
+Title: Names Your 'R Markdown' Chunks
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Steph",
              family = "Locke",
@@ -13,7 +13,7 @@ Authors@R:
       person(given = "Locke Data",
              role = "fnd",
              comment = "https://itsalocke.com"))
-Description: It names the R Markdown chunks of files based on the filename.
+Description: It names the 'R Markdown' chunks of files based on the filename.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
