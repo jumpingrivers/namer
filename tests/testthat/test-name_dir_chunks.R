@@ -1,7 +1,9 @@
 context("test-name_dir_chunks")
 
+tmp <- tempdir()
+
 test_that("renaming works for a dir", {
-  temp_dir <- tempdir()
+  temp_dir <- tmp
   fs::dir_copy(system.file("examples", package = "namer"),
                temp_dir)
   fs::file_delete(file.path(temp_dir, "examples", "example4.Rmd"))
@@ -17,3 +19,5 @@ test_that("renaming works for a dir", {
 
   fs::dir_delete(temp_dir)
 })
+
+unlink(tmp)

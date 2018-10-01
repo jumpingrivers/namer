@@ -1,7 +1,9 @@
 context("test-name_chunks")
 
+tmp <- tempdir()
+
 test_that("renaming works", {
-  temp_file_path <- file.path(tempdir(), "test.Rmd")
+  temp_file_path <- file.path(tmp, "test.Rmd")
 
   file.copy(system.file("examples", "example1.Rmd", package = "namer"),
             temp_file_path)
@@ -14,7 +16,7 @@ test_that("renaming works", {
 })
 
 test_that("unnaming is advised when needed", {
-  temp_file_path <- file.path(tempdir(), "example4.Rmd")
+  temp_file_path <- file.path(tmp, "example4.Rmd")
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
             temp_file_path)
@@ -22,3 +24,5 @@ test_that("unnaming is advised when needed", {
   expect_error(name_chunks(temp_file_path))
   file.remove(temp_file_path)
 })
+
+unlink(tmp)
