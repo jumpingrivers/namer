@@ -1,6 +1,13 @@
 context("test-unname_all_chunks")
 
 test_that("unname_all_chunks works", {
+  # check arg of tempdir
+  R_version <- paste(R.version$major,
+                     R.version$minor,
+                     sep = ".")
+
+  skip_if_not(R_version >= "3.5.0")
+
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
