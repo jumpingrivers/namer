@@ -1,7 +1,7 @@
 context("test-unname_all_chunks")
 
 test_that("unname_all_chunks works", {
-  temp_file_path <- file.path(tempdir(), "test.Rmd")
+  temp_file_path <- file.path(tempdir(), "example4.Rmd")
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
             temp_file_path)

@@ -14,9 +14,11 @@ test_that("renaming works", {
 })
 
 test_that("unnaming is advised when needed", {
-  file.copy(system.file("examples", "example4.Rmd", package = "namer"),
-            "example4.Rmd")
+  temp_file_path <- file.path(tempdir(), "example4.Rmd")
 
-  expect_error(name_chunks("example4.Rmd"))
-  file.remove("example4.Rmd")
+  file.copy(system.file("examples", "example4.Rmd", package = "namer"),
+            temp_file_path)
+
+  expect_error(name_chunks(temp_file_path))
+  file.remove(temp_file_path)
 })
