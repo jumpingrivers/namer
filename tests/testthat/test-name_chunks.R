@@ -1,14 +1,16 @@
 context("test-name_chunks")
 
 test_that("renaming works", {
+  temp_file_path <- file.path(tempdir(), "test.Rmd")
+
   file.copy(system.file("examples", "example1.Rmd", package = "namer"),
-            "test.Rmd")
-  name_chunks("test.Rmd")
-  lines <- readLines("test.Rmd")
+            temp_file_path)
+  name_chunks(temp_file_path)
+  lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)
   expect_true(all(
     chunk_info$name != ""))
-  file.remove("test.Rmd")
+  file.remove(temp_file_path)
 })
 
 test_that("unnaming is advised when needed", {
