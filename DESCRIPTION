@@ -9,7 +9,11 @@ Authors@R:
       person(given = "Maëlle",
              family = "Salmon",
              role = "aut",
-             email = "maelle.salmon@yahoo.se"),
+             email = "maelle.salmon@yahoo.se",
+             comment = c(ORCID = "0000-0002-2815-0399")),
+      person(given = "Ellis",
+             family = "Valentiner",
+             role = "ctb"),
       person(given = "Locke Data",
              role = "fnd",
              comment = "https://itsalocke.com"))
