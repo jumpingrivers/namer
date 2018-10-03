@@ -15,3 +15,5 @@ This is a re-submission taking into account your feedback. Thanks a lot!
 * Examples are now wrapped in \donttest{} and use tempdir()
 
 * Vignette and tests use tempdir().
+
+* We also used the opportunity to improve the RStudio addin and to ditch a dependency.
