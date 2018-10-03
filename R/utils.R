@@ -5,7 +5,7 @@ transform_params <- function(params){
                silent = TRUE)
 
   if(inherits(params_string, "try-error")){
-    params <- stringr::str_replace(params, " ", ", ")
+    params <- sub(" ", ", ", params)
     params_string <- eval(parse(text = paste('alist(', quote_label(params), ')')))
   }
 
@@ -13,22 +13,20 @@ transform_params <- function(params){
 
   tibble::tibble(language = label$language,
                  name = label$name,
-                 options = stringr::str_remove(params, params_string[[1]]))
+                 options = sub(params_string[[1]], "", params))
 }
 
 
 parse_label <- function(label){
-  label %>%
-    stringr::str_replace(" ", "\\/") %>%
-    stringr::str_split("\\/",
-                       simplify = TRUE) -> language_name
+  language_name <- sub(" ", "\\/", label)
+  language_name <- unlist(strsplit(language_name, "\\/"))
 
-  if(ncol(language_name) == 1){
-    tibble::tibble(language = trimws(language_name[1, 1]),
+  if(length(language_name) == 1){
+    tibble::tibble(language = trimws(language_name[1]),
                    name = NA)
   }else{
-    tibble::tibble(language = trimws(language_name[1, 1]),
-                   name = trimws(language_name[1, 2]))
+    tibble::tibble(language = trimws(language_name[1]),
+                   name = trimws(language_name[2]))
   }
 }
 
@@ -36,19 +34,20 @@ parse_label <- function(label){
 # to a tibble with language, name, option, option values
 parse_chunk_header <- function(chunk_header){
   # remove boundaries
-  chunk_header %>%
-    stringr::str_remove_all("```\\{") %>%
-    stringr::str_remove_all("\\}") %>%
-    # parse each part
-    transform_params()
+  chunk_header <- gsub("```\\{", "", chunk_header)
+  chunk_header <- gsub("\\}", "", chunk_header)
+
+  # parse each part
+  transform_params(chunk_header)
 
 }
 
 digest_chunk_header <- function(chunk_header_index,
                                 lines){
   # parse the chunk header
-  lines[chunk_header_index] %>%
-    parse_chunk_header -> chunk_info
+  chunk_info <- parse_chunk_header(
+    lines[chunk_header_index])
+
 
   # keep index
   chunk_info$index <- chunk_header_index
@@ -65,15 +64,14 @@ re_write_headers <- function(info_df){
                                        .open = "(",
                                        .close = ")"),
                      # for when no name
-                     line = stringr::str_replace_all(.data$line, " \\,", ","),
-                     line = stringr::str_remove_all(.data$line, " NA"))
+                     line = gsub(" \\,", ",", .data$line),
+                     line = gsub(" NA", "", .data$line))
 }
 
 # helper to create a data.frame of chunk info
 get_chunk_info <- function(lines){
   # find which lines are chunk starts
-  chunk_header_indices <- which(stringr::str_detect(lines,
-                                                    "```\\{[a-zA-Z0-9]"))
+  chunk_header_indices <- which(grepl("```\\{[a-zA-Z0-9]", lines))
 
   # null if no chunks
   if(length(chunk_header_indices) == 0){
