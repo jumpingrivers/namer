@@ -95,7 +95,10 @@ Maybe namer::unname_chunks before running name_chunks.")
 #'
 #' @examples
 #' temp_dir <- tempdir()
+#' # just to make sure we're not overwriting
+#' if(fs::dir_exists(file.path(temp_dir, "examples"))){
 #' fs::dir_delete(file.path(temp_dir, "examples"))
+#' }
 #' fs::dir_copy(system.file("examples", package = "namer"),
 #'             temp_dir)
 #'  # this is an example file that'd fail
