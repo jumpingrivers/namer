@@ -95,10 +95,12 @@ Maybe namer::unname_chunks before running name_chunks.")
 #'
 #' @examples
 #' temp_dir <- tempdir()
+#' fs::dir_delete(file.path(temp_dir, "examples"))
 #' fs::dir_copy(system.file("examples", package = "namer"),
 #'             temp_dir)
 #'  # this is an example file that'd fail
-#' fs::file_delete(file.path(temp_dir, "example4.Rmd"))
+#' fs::file_delete(file.path(temp_dir,
+#'                          "examples", "example4.Rmd"))
 #' name_dir_chunks(temp_dir)
 #' file.edit(file.path(temp_dir, "example1.Rmd"))
 name_dir_chunks <- function(dir){
