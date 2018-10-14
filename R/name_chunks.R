@@ -105,7 +105,8 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' fs::file_delete(file.path(temp_dir,
 #'                          "examples", "example4.Rmd"))
 #' name_dir_chunks(temp_dir)
-#' file.edit(file.path(temp_dir, "example1.Rmd"))
+#' file.edit(file.path(temp_dir,
+#'                    "examples", "example1.Rmd"))
 name_dir_chunks <- function(dir){
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)
