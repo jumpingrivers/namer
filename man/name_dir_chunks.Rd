@@ -20,7 +20,7 @@ When using namer, please check the edits
 \examples{
 temp_dir <- tempdir()
 fs::dir_copy(system.file("examples", package = "namer"),
-            temp_dir, overwrite = TRUE)
+            temp_dir)
  # this is an example file that'd fail
 fs::file_delete(file.path(temp_dir, "example4.Rmd"))
 name_dir_chunks(temp_dir)

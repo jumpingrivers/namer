@@ -18,7 +18,6 @@
 #' name_chunks(temp_file_path)
 #' file.edit(temp_file_path)
 #' file.remove(temp_file_path)
-#' }
 name_chunks <- function(path){
   # read the whole file
   lines <- readLines(path)
@@ -97,7 +96,7 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' @examples
 #' temp_dir <- tempdir()
 #' fs::dir_copy(system.file("examples", package = "namer"),
-#'             temp_dir, overwrite = TRUE)
+#'             temp_dir)
 #'  # this is an example file that'd fail
 #' fs::file_delete(file.path(temp_dir, "example4.Rmd"))
 #' name_dir_chunks(temp_dir)

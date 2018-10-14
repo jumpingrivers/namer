@@ -17,3 +17,11 @@ When using namer, please check the edits
  before pushing them to your code base. Such automatic
  chunk labelling is best paired with version control.
 }
+\examples{
+temp_file_path <- file.path(tempdir(), "test.Rmd")
+file.copy(system.file("examples", "example4.Rmd", package = "namer"),
+          temp_file_path,
+          overwrite = TRUE)
+unname_all_chunks(temp_file_path)
+file.edit(temp_file_path)
+}
