@@ -1,3 +1,9 @@
+# namer 0.1.2
+
+* Testable examples were unwrapped.
+
+* Fixed the test where the temporary directory would have been deleted.
+
 # namer 0.1.1
 
 * No longer depends on stringr.

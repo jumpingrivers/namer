@@ -10,10 +10,6 @@
 
 This is a re-submission taking into account your feedback. Thanks a lot!
 
-* Now 'R Markdown' is in single quotes in Title and Description.
+* we unwrapped testable examples.
 
-* Examples are now wrapped in \donttest{} and use tempdir()
-
-* Vignette and tests use tempdir().
-
-* We also used the opportunity to improve the RStudio addin and to ditch a dependency.
+* the package no longer deletes the temporary directory in one example.

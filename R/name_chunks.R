@@ -11,10 +11,10 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' temp_file_path <- file.path(tempdir(), "test.Rmd")
 #' file.copy(system.file("examples", "example1.Rmd", package = "namer"),
-#'           temp_file_path)
+#'           temp_file_path,
+#'           overwrite = TRUE)
 #' name_chunks(temp_file_path)
 #' file.edit(temp_file_path)
 #' file.remove(temp_file_path)
@@ -95,16 +95,13 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' temp_dir <- tempdir()
 #' fs::dir_copy(system.file("examples", package = "namer"),
-#'             temp_dir)
+#'             temp_dir, overwrite = TRUE)
 #'  # this is an example file that'd fail
 #' fs::file_delete(file.path(temp_dir, "example4.Rmd"))
 #' name_dir_chunks(temp_dir)
 #' file.edit(file.path(temp_dir, "example1.Rmd"))
-#' fs::dir_delete(temp_dir)
-#' }
 name_dir_chunks <- function(dir){
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)
