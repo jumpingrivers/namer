@@ -14,7 +14,9 @@
 #'           temp_file_path,
 #'           overwrite = TRUE)
 #' unname_all_chunks(temp_file_path)
+#' if(interactive()){
 #' file.edit(temp_file_path)
+#' }
 unname_all_chunks <- function(path){
   # read the whole file
   lines <- readLines(path)

@@ -16,7 +16,9 @@
 #'           temp_file_path,
 #'           overwrite = TRUE)
 #' name_chunks(temp_file_path)
+#' if(interactive()){
 #' file.edit(temp_file_path)
+#' }
 #' file.remove(temp_file_path)
 name_chunks <- function(path){
   # read the whole file
@@ -105,8 +107,10 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' fs::file_delete(file.path(temp_dir,
 #'                          "examples", "example4.Rmd"))
 #' name_dir_chunks(temp_dir)
+#' if(interactive()){
 #' file.edit(file.path(temp_dir,
 #'                    "examples", "example1.Rmd"))
+#' }
 name_dir_chunks <- function(dir){
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)

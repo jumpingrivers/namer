@@ -10,6 +10,4 @@
 
 This is a re-submission taking into account your feedback. Thanks a lot!
 
-* we unwrapped testable examples.
-
-* the package no longer deletes the temporary directory in one example.
+* file.edit() in examples is inside if(interactive()){} now.

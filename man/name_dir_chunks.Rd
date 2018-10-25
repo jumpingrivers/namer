@@ -29,6 +29,8 @@ fs::dir_copy(system.file("examples", package = "namer"),
 fs::file_delete(file.path(temp_dir,
                          "examples", "example4.Rmd"))
 name_dir_chunks(temp_dir)
+if(interactive()){
 file.edit(file.path(temp_dir,
                    "examples", "example1.Rmd"))
+}
 }

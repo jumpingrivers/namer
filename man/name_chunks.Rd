@@ -23,6 +23,8 @@ file.copy(system.file("examples", "example1.Rmd", package = "namer"),
           temp_file_path,
           overwrite = TRUE)
 name_chunks(temp_file_path)
+if(interactive()){
 file.edit(temp_file_path)
+}
 file.remove(temp_file_path)
 }

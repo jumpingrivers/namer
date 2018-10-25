@@ -1,3 +1,7 @@
+# namer 0.1.3
+
+* In examples file.edit only happens if interactive().
+
 # namer 0.1.2
 
 * Testable examples were unwrapped.
