@@ -71,7 +71,7 @@ re_write_headers <- function(info_df){
 # helper to create a data.frame of chunk info
 get_chunk_info <- function(lines){
   # find which lines are chunk starts
-  chunk_header_indices <- which(grepl("```\\{[a-zA-Z0-9]", lines))
+  chunk_header_indices <- which(grepl("^```\\{[a-zA-Z0-9]", lines))
 
   # null if no chunks
   if(length(chunk_header_indices) == 0){
