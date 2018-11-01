@@ -1,0 +1,21 @@
+---
+title: "Untitled"
+author: "Gorka Navarrete"
+date: "10/31/2018"
+output: html_document
+---
+
+```{r namer_bug-1, echo=FALSE}
+library(knitr)
+```
+
+```{r run-numeric-md, include=FALSE}
+out = NULL
+for (i in as.character(unique(iris$Species))) {
+  # out = c(out, knit_expand(text='#### Species = {{i}}'))
+  out <- paste0("\n\n### ", i, "###\n\n```{r ", gsub(' |°|Ñ', '', i), ", results='asis', echo=FALSE}\n\ncat(i)\n\n```\n\n&nbsp;&nbsp;\n\n\\newpage")
+
+}
+```
+
+`r paste(knit(text = out), collapse = '\n')`

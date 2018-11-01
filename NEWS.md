@@ -1,3 +1,7 @@
+# dev version
+
+* The regex recognizing the beginning of a chunk now demands ``` are at the beginning of a line (@gorkang, #17).
+
 # namer 0.1.3
 
 * In examples file.edit only happens if interactive().
