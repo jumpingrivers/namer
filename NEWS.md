@@ -1,6 +1,7 @@
 # dev version
 
 * The regex recognizing the beginning of a chunk now demands ``` are at the beginning of a line (@gorkang, #17).
+* Replace LaTeX special characters with `-` to better support text references in bookdown.
 
 # namer 0.1.3
 
