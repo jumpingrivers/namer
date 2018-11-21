@@ -98,5 +98,21 @@ quote_label = function(x) {
   x
 }
 
+# from knitr:::escape_latex()
+clean_latex_special_characters <- function (x, newlines = FALSE, spaces = FALSE)
+{
+  x <- gsub("\\\\", "-", x)
+  x <- gsub("([#$%&_{}])", "-", x)
+  x <- gsub("\\\\textbackslash", "-", x)
+  x <- gsub("~", "-", x)
+  x <- gsub("\\^", "-", x)
+  x <- gsub("(?<!\n)\n(?!\n)", "-", x, perl = TRUE)
+  x <- gsub("  ", "-", x)
+  x <- gsub("\\s", "-", x)
+  x <- gsub("[-]{2,}", "-", x)
+  x
+}
+
+
 
 globalVariables(".data")
