@@ -2,6 +2,16 @@ context("test-name_chunks")
 
 tmp <- tempdir()
 
+test_that("LaTeX special characters are succesfully replaced in filenames", {
+
+  bad_filename <- "11-12-2018_The-%-of-$-on-this-&-that"
+
+  fixed_filename <- clean_latex_special_characters(bad_filename)
+
+  expect_false(grepl("([#$%&_{}])|\\s|~|\\^|[-]{2,}", paste0(fixed_filename, "")))
+
+})
+
 test_that("renaming works", {
   temp_file_path <- file.path(tmp, "test.Rmd")
 

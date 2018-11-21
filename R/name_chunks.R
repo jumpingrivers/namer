@@ -45,6 +45,9 @@ name_chunks <- function(path){
     # create new chunk names
     filename <- fs::path_ext_remove(path)
     filename <- fs::path_file(filename)
+    # support for bookdown text references by removing underscores
+    # https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#fnref5
+    filename <- clean_latex_special_characters(filename)
     new_chunk_names <-  glue::glue("{filename}-{1:no_unnamed}")
     new_chunk_names <- as.character(new_chunk_names)
     # and write to which line they correspond
