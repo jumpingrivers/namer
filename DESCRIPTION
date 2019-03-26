@@ -1,6 +1,6 @@
 Package: namer
 Title: Names Your 'R Markdown' Chunks
-Version: 0.1.3
+Version: 0.1.4
 Authors@R: 
     c(person(given = "Steph",
              family = "Locke",
@@ -33,7 +33,7 @@ Imports:
     tibble,
     dplyr,
     rstudioapi
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1
 Suggests: 
     testthat,
     covr,

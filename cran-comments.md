@@ -1,6 +1,9 @@
 ## Test environments
-* local x86_64-w64-mingw32/x64 install, R 3.5.0
-* rhub::check_for_cran
+- local x86_64-pc-linux-gnu install, R 3.4.4
+- R-hub ubuntu-gcc-release (r-release)
+- R-hub windows-x86_64-devel (r-devel)
+- R-hub fedora-clang-devel (r-devel)
+
 
 ## R CMD check results
 
@@ -8,6 +11,7 @@
 
 ## Release summary
 
-This is a re-submission taking into account your feedback. Thanks a lot!
+Bug fixes
 
-* file.edit() in examples is inside if(interactive()){} now.
+* The regex recognizing the beginning of a chunk now demands ``` are at the beginning of a line.
+* Replace LaTeX special characters with `-` to better support text references in bookdown.
