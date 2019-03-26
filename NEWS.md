@@ -1,3 +1,5 @@
+# namer (development version)
+
 # namer 0.1.4
 
 * The regex recognizing the beginning of a chunk now demands ``` are at the beginning of a line (@gorkang, #17).
