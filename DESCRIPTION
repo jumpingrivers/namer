@@ -32,7 +32,8 @@ Imports:
     purrr,
     tibble,
     dplyr,
-    rstudioapi
+    rstudioapi,
+    stringr
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
