@@ -1,5 +1,5 @@
 # namer (development version)
-* unname_all_chunks now accepts argument `ch_n_p` with the prefix of the chunknames to be unnamed
+* unname_all_chunks now accepts argument `chunk_name_prefix` with the prefix of the chunknames to be unnamed (@HanOostdijk, #22)
 
 # namer 0.1.4
 

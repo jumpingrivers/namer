@@ -1,6 +1,6 @@
 context("test-unname_all_chunks")
 
-test_that("unname_all_chunks works in case is.null(ch_n_p) == TRUE", {
+test_that("unname_all_chunks works in case is.null(chunk_name_prefix) == TRUE", {
   # check arg of tempdir
   R_version <- paste(R.version$major,
                      R.version$minor,
@@ -30,7 +30,7 @@ test_that("unname_all_chunks works in case is.null(ch_n_p) == TRUE", {
   file.remove(paste0(basename, ".html"))
 })
 
-test_that("unname_all_chunks works in case is.null(ch_n_p) == FALSE", {
+test_that("unname_all_chunks works in case is.null(chunk_name_prefix) == FALSE", {
   # check arg of tempdir
   R_version <- paste(R.version$major,
     R.version$minor,
@@ -42,7 +42,7 @@ test_that("unname_all_chunks works in case is.null(ch_n_p) == FALSE", {
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
     temp_file_path)
-  unname_all_chunks(temp_file_path,ch_n_p='example4')
+  unname_all_chunks(temp_file_path,chunk_name_prefix='example4')
 
   lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)

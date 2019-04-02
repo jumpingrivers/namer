@@ -4,15 +4,15 @@
 \alias{unname_all_chunks}
 \title{Unname chunks in a single file}
 \usage{
-unname_all_chunks(path, ch_n_p = NULL)
+unname_all_chunks(path, chunk_name_prefix = NULL)
 }
 \arguments{
 \item{path}{Path to file}
 
-\item{ch_n_p}{Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)}
+\item{chunk_name_prefix}{Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)}
 }
 \description{
-Unname in a single file all chunks except the setup chunk, or alternatively unname the chunknames with a given prefix
+Unname in a single file all chunks except the setup chunk, or alternatively only unname the chunknames with a given prefix
 }
 \details{
 When using namer, please check the edits
@@ -34,7 +34,7 @@ temp_file_path <- file.path(tempdir(), "test2.Rmd")
 file.copy(system.file("examples", "example4.Rmd", package = "namer"),
           temp_file_path,
           overwrite = TRUE)
-unname_all_chunks(temp_file_path,ch_n_p='example4')
+unname_all_chunks(temp_file_path,chunk_name_prefix='example4')
 if(interactive()){
 file.edit(temp_file_path)
 }
