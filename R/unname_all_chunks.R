@@ -1,6 +1,6 @@
 #' @title Unname chunks in a single file
 #'
-#' @description Unname in a single file all chunks except the setup chunk, or alternatively only unname the chunknames with a given prefix
+#' @description Unname in a single file all chunks except the setup chunk, or alternatively only unname the chunknames with a given prefix. Also in the latter case a chunkname 'setup' is not unnamed.
 #'
 #' @inherit name_chunks details
 #'
@@ -47,6 +47,8 @@ unname_all_chunks <- function(path,chunk_name_prefix=NULL){
     # preserve labels not starting with chunk_name_prefix
     del_labels = strtrim(chunk_headers_info$name,nchar(chunk_name_prefix)) %in%
       chunk_name_prefix
+    setup_label = !(chunk_headers_info$name %in% 'setup')
+    del_labels = del_labels & setup_label
     chunk_headers_info$name[del_labels] <- ""
   }
 
