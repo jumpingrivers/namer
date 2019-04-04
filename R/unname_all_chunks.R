@@ -47,10 +47,10 @@ unname_all_chunks <- function(path,chunk_name_prefix=NULL){
     chunk_headers_info$name[chunk_headers_info$name != "setup"] <- ""
   } else {
     # preserve labels not starting with chunk_name_prefix
-    del_labels = strtrim(chunk_headers_info$name,nchar(chunk_name_prefix)) %in%
+    del_labels <- strtrim(chunk_headers_info$name,nchar(chunk_name_prefix)) %in%
       chunk_name_prefix
-    setup_label = !(chunk_headers_info$name %in% 'setup')
-    del_labels = del_labels & setup_label
+    setup_label <- !(chunk_headers_info$name %in% 'setup')
+    del_labels <- del_labels & setup_label
     chunk_headers_info$name[del_labels] <- ""
   }
 
