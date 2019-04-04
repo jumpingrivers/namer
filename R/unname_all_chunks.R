@@ -1,6 +1,8 @@
 #' @title Unname chunks in a single file
 #'
-#' @description Unname in a single file all chunks except the setup chunk, or alternatively only unname the chunknames with a given prefix. Also in the latter case a chunkname 'setup' is not unnamed.
+#' @description Unname in a single file all chunks,
+#' or alternatively only unname the chunknames with a given prefix.
+#' In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.
 #'
 #' @inherit name_chunks details
 #'
