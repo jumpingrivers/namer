@@ -10,17 +10,22 @@ Authors@R:
              family = "Salmon",
              role = "aut",
              email = "maelle.salmon@yahoo.se",
-             comment = c(ORCID = "0000-0002-2815-0399")),
+             comment = structure("0000-0002-2815-0399", .Names = "ORCID")),
       person(given = "Ellis",
              family = "Valentiner",
              role = "ctb"),
       person(given = "Martin",
              family = "Hadley",
              role = "ctb",
-             comment = c(ORCID = "0000-0002-3039-6849")),
+             comment = structure("0000-0002-3039-6849", .Names = "ORCID")),
       person(given = "Locke Data",
              role = "fnd",
-             comment = "https://itsalocke.com"))
+             comment = "https://itsalocke.com"),
+      person(given = "Han",
+             family = "Oostdijk",
+             role = "ctb",
+             comment = structure("0000-0001-6710-4566", .Names = "ORCID"))
+      )
 Description: It names the 'R Markdown' chunks of files based on the filename.
 License: GPL-3
 Encoding: UTF-8
