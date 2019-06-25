@@ -27,7 +27,7 @@ temp_file_path <- file.path(tempdir(), "test1.Rmd")
 file.copy(system.file("examples", "example4.Rmd", package = "namer"),
           temp_file_path,
           overwrite = TRUE)
-unname_all_chunks(temp_file_path)
+unname_chunks(temp_file_path)
 if(interactive()){
 file.edit(temp_file_path)
 }
@@ -36,7 +36,7 @@ temp_file_path <- file.path(tempdir(), "test2.Rmd")
 file.copy(system.file("examples", "example4.Rmd", package = "namer"),
           temp_file_path,
           overwrite = TRUE)
-unname_all_chunks(temp_file_path,chunk_name_prefix='example4')
+unname_chunks(temp_file_path,chunk_name_prefix='example4')
 if(interactive()){
 file.edit(temp_file_path)
 }

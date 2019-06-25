@@ -5,6 +5,7 @@
 #' In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.
 #'
 #' @inherit name_chunks details
+#' @inheritParams name_chunks
 #'
 #' @param path Path to file
 #' @param chunk_name_prefix Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)
@@ -17,7 +18,7 @@
 #' file.copy(system.file("examples", "example4.Rmd", package = "namer"),
 #'           temp_file_path,
 #'           overwrite = TRUE)
-#' unname_all_chunks(temp_file_path)
+#' unname_chunks(temp_file_path)
 #' if(interactive()){
 #' file.edit(temp_file_path)
 #' }
@@ -26,7 +27,7 @@
 #' file.copy(system.file("examples", "example4.Rmd", package = "namer"),
 #'           temp_file_path,
 #'           overwrite = TRUE)
-#' unname_all_chunks(temp_file_path,chunk_name_prefix='example4')
+#' unname_chunks(temp_file_path,chunk_name_prefix='example4')
 #' if(interactive()){
 #' file.edit(temp_file_path)
 #' }
@@ -62,10 +63,11 @@ unname_chunks <- function(path,chunk_name_prefix=NULL){
   writeLines(lines, path)
 }
 
-#' @title  Name chunks of all Rmds in a dir
+#' @title  Unname chunks of all Rmds in a dir
 #'
 #' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
 #'
+#' @inheritParams name_chunks
 #' @inherit name_chunks details
 #'
 #' @param dir Path to folder
@@ -97,4 +99,3 @@ chatty_unname_chunks <- function(path){
   message(glue::glue("Scanning {path}..."))
   unname_chunks(path)
 }
-

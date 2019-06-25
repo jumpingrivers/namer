@@ -4,10 +4,15 @@
 \alias{name_dir_chunks}
 \title{Name chunks of all Rmds in a dir}
 \usage{
-name_dir_chunks(dir)
+name_dir_chunks(dir, unname = FALSE)
 }
 \arguments{
 \item{dir}{Path to folder}
+
+\item{unname}{Should all chunks be unnamed before naming? Default is `FALSE`.
+Turning this option on will cause all existing labels to be overwritten. In
+contrast, with its default `unname = FALSE` only unlabelled chunks will be
+named.}
 }
 \description{
 Name unnamed chunks in a dir using the filenames with extension stripped as basis.

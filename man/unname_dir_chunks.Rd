@@ -2,7 +2,7 @@
 % Please edit documentation in R/unname_chunks.R
 \name{unname_dir_chunks}
 \alias{unname_dir_chunks}
-\title{Name chunks of all Rmds in a dir}
+\title{Unname chunks of all Rmds in a dir}
 \usage{
 unname_dir_chunks(dir)
 }
