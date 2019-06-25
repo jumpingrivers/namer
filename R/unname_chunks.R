@@ -30,7 +30,7 @@
 #' if(interactive()){
 #' file.edit(temp_file_path)
 #' }
-unname_all_chunks <- function(path,chunk_name_prefix=NULL){
+unname_chunks <- function(path,chunk_name_prefix=NULL){
   # read the whole file
   lines <- readLines(path)
 
@@ -61,3 +61,40 @@ unname_all_chunks <- function(path,chunk_name_prefix=NULL){
   # save file
   writeLines(lines, path)
 }
+
+#' @title  Name chunks of all Rmds in a dir
+#'
+#' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
+#'
+#' @inherit name_chunks details
+#'
+#' @param dir Path to folder
+#'
+#' @export
+#'
+#' @examples
+#' temp_dir <- tempdir()
+#' # just to make sure we're not overwriting
+#' if(fs::dir_exists(file.path(temp_dir, "examples"))){
+#' fs::dir_delete(file.path(temp_dir, "examples"))
+#' }
+#' fs::dir_copy(system.file("examples", package = "namer"),
+#'             temp_dir)
+#'  # this is an example file that'd fail
+#' fs::file_delete(file.path(temp_dir,
+#'                          "examples", "example4.Rmd"))
+#' name_dir_chunks(temp_dir)
+#' if(interactive()){
+#' file.edit(file.path(temp_dir,
+#'                    "examples", "example1.Rmd"))
+#' }
+unname_dir_chunks <- function(dir){
+  rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
+  purrr::walk(rmds, chatty_unname_chunks)
+}
+
+chatty_unname_chunks <- function(path){
+  message(glue::glue("Scanning {path}..."))
+  unname_chunks(path)
+}
+
