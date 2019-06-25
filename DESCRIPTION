@@ -10,47 +10,48 @@ Authors@R:
              family = "Salmon",
              role = "aut",
              email = "maelle.salmon@yahoo.se",
-             comment = structure("0000-0002-2815-0399", .Names = "ORCID")),
+             comment = c(ORCID = "0000-0002-2815-0399")),
       person(given = "Ellis",
              family = "Valentiner",
              role = "ctb"),
       person(given = "Martin",
              family = "Hadley",
              role = "ctb",
-             comment = structure("0000-0002-3039-6849", .Names = "ORCID")),
+             comment = c(ORCID = "0000-0002-3039-6849")),
       person(given = "Locke Data",
              role = "fnd",
              comment = "https://itsalocke.com"),
       person(given = "Han",
              family = "Oostdijk",
              role = "ctb",
-             comment = structure("0000-0001-6710-4566", .Names = "ORCID")),
+             comment = c(ORCID = "0000-0001-6710-4566")),
       person(given = "Patrick",
              family = "Schratz",
              role = "ctb",
              email = "patrick.schratz@gmail.com",
-             comment = c(ORCID = "0000-0003-0748-6624"))
-      )
-Description: It names the 'R Markdown' chunks of files based on the filename.
+             comment = c(ORCID = "0000-0003-0748-6624")))
+Description: It names the 'R Markdown' chunks of files based on
+    the filename.
 License: GPL-3
-Encoding: UTF-8
-LazyData: true
+URL: https://github.com/lockedata/namer
+BugReports: https://github.com/lockedata/namer/issues
 Imports: 
+    dplyr,
     fs,
     glue,
     magrittr,
     purrr,
-    tibble,
-    dplyr,
-    rstudioapi
-RoxygenNote: 6.1.1
+    rstudioapi,
+    tibble
 Suggests: 
-    testthat,
     covr,
-    rmarkdown,
     knitr,
+    rmarkdown,
+    testthat,
     UNF
-VignetteBuilder: knitr
-URL: https://github.com/lockedata/namer
-BugReports: https://github.com/lockedata/namer/issues
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
