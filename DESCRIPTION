@@ -36,6 +36,7 @@ License: GPL-3
 URL: https://github.com/lockedata/namer
 BugReports: https://github.com/lockedata/namer/issues
 Imports: 
+    cli,
     dplyr,
     fs,
     glue,

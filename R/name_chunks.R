@@ -124,8 +124,11 @@ Maybe namer::unname_chunks before running name_chunks.")
 name_dir_chunks <- function(dir, unname = FALSE){
 
   if (isTRUE(unname)) {
+    cli::cat_rule("Unnaming all chunks")
     unname_dir_chunks(dir)
   }
+
+  cli::cat_rule("Naming all chunks")
 
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)
