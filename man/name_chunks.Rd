@@ -9,9 +9,9 @@ name_chunks(path, unname = FALSE)
 \arguments{
 \item{path}{Path to file}
 
-\item{unname}{Should all chunks be unnamed before naming? Default is `FALSE`.
+\item{unname}{Should all chunks be unnamed before naming? Default is \code{FALSE}.
 Turning this option on will cause all existing labels to be overwritten. In
-contrast, with its default `unname = FALSE` only unlabelled chunks will be
+contrast, with its default \code{unname = FALSE} only unlabelled chunks will be
 named.}
 }
 \description{
@@ -19,8 +19,8 @@ Name unnamed chunks in a single file using the filename with extension stripped 
 }
 \details{
 When using namer, please check the edits
- before pushing them to your code base. Such automatic
- chunk labelling is best paired with version control.
+before pushing them to your code base. Such automatic
+chunk labelling is best paired with version control.
 }
 \examples{
 temp_file_path <- file.path(tempdir(), "test.Rmd")

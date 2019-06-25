@@ -53,3 +53,4 @@ Suggests:
 VignetteBuilder: knitr
 URL: https://github.com/lockedata/namer
 BugReports: https://github.com/lockedata/namer/issues
+Roxygen: list(markdown = TRUE)

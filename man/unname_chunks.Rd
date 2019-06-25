@@ -9,7 +9,7 @@ unname_chunks(path, chunk_name_prefix = NULL)
 \arguments{
 \item{path}{Path to file}
 
-\item{chunk_name_prefix}{Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)}
+\item{chunk_name_prefix}{Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named \code{setup})}
 }
 \description{
 Unname in a single file all chunks,
@@ -18,8 +18,8 @@ In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.
 }
 \details{
 When using namer, please check the edits
- before pushing them to your code base. Such automatic
- chunk labelling is best paired with version control.
+before pushing them to your code base. Such automatic
+chunk labelling is best paired with version control.
 }
 \examples{
 # remove all chunklabels except the one named 'setup'

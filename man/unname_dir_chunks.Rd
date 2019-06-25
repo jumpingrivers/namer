@@ -14,8 +14,8 @@ Name unnamed chunks in a dir using the filenames with extension stripped as basi
 }
 \details{
 When using namer, please check the edits
- before pushing them to your code base. Such automatic
- chunk labelling is best paired with version control.
+before pushing them to your code base. Such automatic
+chunk labelling is best paired with version control.
 }
 \examples{
 temp_dir <- tempdir()
