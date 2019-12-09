@@ -70,6 +70,7 @@ test_that("unname_all_chunks works in case chunk_name_prefix == 'setup' ", {
     sep = ".")
 
   skip_if_not(R_version >= "3.5.0")
+  skip_if_not(rmarkdown::pandoc_available("1.12.3"))
 
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
