@@ -2,11 +2,8 @@ context("test-unname_chunks")
 
 test_that("unname_chunks works in case is.null(chunk_name_prefix) == TRUE", {
   # check arg of tempdir
-  R_version <- paste(R.version$major,
-                     R.version$minor,
-                     sep = ".")
-
-  skip_if_not(R_version >= "3.5.0")
+  skip_if_not_r35()
+  skip_if_not(rmarkdown::pandoc_available("1.12.3"))
 
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
@@ -32,11 +29,8 @@ test_that("unname_chunks works in case is.null(chunk_name_prefix) == TRUE", {
 
 test_that("unname_chunks works in case is.null(chunk_name_prefix) == FALSE", {
   # check arg of tempdir
-  R_version <- paste(R.version$major,
-    R.version$minor,
-    sep = ".")
-
-  skip_if_not(R_version >= "3.5.0")
+  skip_if_not_r35()
+  skip_if_not(rmarkdown::pandoc_available("1.12.3"))
 
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
@@ -63,11 +57,8 @@ test_that("unname_chunks works in case is.null(chunk_name_prefix) == FALSE", {
 
 test_that("unname_chunks works in case chunk_name_prefix == 'setup' ", {
   # check arg of tempdir
-  R_version <- paste(R.version$major,
-    R.version$minor,
-    sep = ".")
-
-  skip_if_not(R_version >= "3.5.0")
+  skip_if_not_r35()
+  skip_if_not(rmarkdown::pandoc_available("1.12.3"))
 
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
@@ -96,11 +87,7 @@ test_that("unname_chunks works in case chunk_name_prefix == 'setup' ", {
 
 test_that("unname_all_chunks works but gives a warning",{
   # check arg of tempdir
-  R_version <- paste(R.version$major,
-                     R.version$minor,
-                     sep = ".")
-
-  skip_if_not(R_version >= "3.5.0")
+  skip_if_not_r35()
 
   temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
 
