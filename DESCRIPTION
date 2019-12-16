@@ -33,7 +33,7 @@ Authors@R:
 Description: It names the 'R Markdown' chunks of files based on
     the filename.
 License: GPL-3
-URL: https://github.com/lockedata/namer
+URL: https://github.com/lockedata/namer, https://itsalocke.com/namer/
 BugReports: https://github.com/lockedata/namer/issues
 Imports: 
     cli,
