@@ -1,3 +1,7 @@
 template:
   package: lockedatapkg
   default_assets: false
+
+authors:
+  Locke Data:
+    href: "https://itsalocke.com/"
