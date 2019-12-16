@@ -1,7 +1,7 @@
 ## Test environments
-- local x86_64-pc-linux-gnu install, R 3.4.4
-- R-hub ubuntu-gcc-release (r-release)
+- local x86_64-pc-linux-gnu install, R 3.6.1
 - R-hub windows-x86_64-devel (r-devel)
+- R-hub ubuntu-gcc-release (r-release)
 - R-hub fedora-clang-devel (r-devel)
 
 
@@ -11,7 +11,6 @@
 
 ## Release summary
 
-Bug fixes
+* The tests using rmarkdown are now skipped if Pandoc 1.12.3 (minimal version for rmarkdown) is not available.
 
-* The regex recognizing the beginning of a chunk now demands ``` are at the beginning of a line.
-* Replace LaTeX special characters with `-` to better support text references in bookdown.
+* unname_all_chunks now accepts argument `chunk_name_prefix` with the prefix of the chunknames to be unnamed
