@@ -9,9 +9,9 @@ name_dir_chunks(dir, unname = FALSE)
 \arguments{
 \item{dir}{Path to folder}
 
-\item{unname}{Should all chunks be unnamed before naming? Default is \code{FALSE}.
+\item{unname}{Should all chunks be unnamed before naming? Default is `FALSE`.
 Turning this option on will cause all existing labels to be overwritten. In
-contrast, with its default \code{unname = FALSE} only unlabelled chunks will be
+contrast, with its default `unname = FALSE` only unlabelled chunks will be
 named.}
 }
 \description{
@@ -19,8 +19,8 @@ Name unnamed chunks in a dir using the filenames with extension stripped as basi
 }
 \details{
 When using namer, please check the edits
-before pushing them to your code base. Such automatic
-chunk labelling is best paired with version control.
+ before pushing them to your code base. Such automatic
+ chunk labelling is best paired with version control.
 }
 \examples{
 temp_dir <- tempdir()

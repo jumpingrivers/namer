@@ -6,7 +6,7 @@
 #'  before pushing them to your code base. Such automatic
 #'  chunk labelling is best paired with version control.
 #'
-#' @param path Path to file
+#' @template path
 #' @template unname
 #'
 #' @export
@@ -100,7 +100,7 @@ Maybe namer::unname_chunks before running name_chunks.")
 #'
 #' @inherit name_chunks details
 #'
-#' @param dir Path to folder
+#' @template dir
 #' @template unname
 #'
 #' @export

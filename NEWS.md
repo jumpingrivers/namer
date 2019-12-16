@@ -4,7 +4,7 @@
 
 * new function `unname_dir_chunks()` that works in the same way as `name_dir_chunks()` (@pat-s, #23)
 
-* rename `unname_all_chunks()` to `unname_chunks()` to be consistend with `name_chunks()` (@pat-s, #23)
+* rename `unname_all_chunks()` to `unname_chunks()` to be consistend with `name_chunks()` (@pat-s, #23). `unname_all_chunks()` will be deprecated in a future version and currently gives a warning.
 
 * added some `cli` verbosity (@pat-s, #23)
 

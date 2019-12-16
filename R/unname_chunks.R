@@ -5,10 +5,9 @@
 #' In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.
 #'
 #' @inherit name_chunks details
-#' @inheritParams name_chunks
 #'
-#' @param path Path to file
-#' @param chunk_name_prefix Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)
+#' @template path
+#' @template chunk_name_prefix
 #'
 #' @export
 #'
@@ -31,7 +30,7 @@
 #' if(interactive()){
 #' file.edit(temp_file_path)
 #' }
-unname_chunks <- function(path,chunk_name_prefix=NULL){
+unname_chunks <- function(path, chunk_name_prefix = NULL) {
   # read the whole file
   lines <- readLines(path)
 
@@ -67,10 +66,9 @@ unname_chunks <- function(path,chunk_name_prefix=NULL){
 #'
 #' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
 #'
-#' @inheritParams name_chunks
 #' @inherit name_chunks details
 #'
-#' @param dir Path to folder
+#' @template dir
 #'
 #' @export
 #'
@@ -98,4 +96,13 @@ unname_dir_chunks <- function(dir){
 chatty_unname_chunks <- function(path){
   message(glue::glue("Scanning {path}..."))
   unname_chunks(path)
+}
+
+#' @template path
+#' @template chunk_name_prefix
+#' @rdname unname_chunks
+#' @export
+unname_all_chunks <- function(path, chunk_name_prefix = NULL) {
+  warning("please use unname_chunks() instead of unname_all_chunks()", call. = FALSE)
+  unname_chunks(path,chunk_name_prefix = NULL)
 }

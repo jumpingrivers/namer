@@ -93,3 +93,27 @@ test_that("unname_chunks works in case chunk_name_prefix == 'setup' ", {
 
   file.remove(paste0(basename, ".html"))
 })
+
+test_that("unname_all_chunks works but gives a warning",{
+  # check arg of tempdir
+  R_version <- paste(R.version$major,
+                     R.version$minor,
+                     sep = ".")
+
+  skip_if_not(R_version >= "3.5.0")
+
+  temp_file_path <- file.path(tempdir(check = TRUE), "example4.Rmd")
+
+  file.copy(system.file("examples", "example4.Rmd", package = "namer"),
+            temp_file_path)
+  expect_warning(unname_all_chunks(temp_file_path),
+                 "please use")
+
+  lines <- readLines(temp_file_path)
+  chunk_info <- get_chunk_info(lines)
+
+  testthat::expect_identical(chunk_info$name[1],'setup')
+  testthat::expect_true(all(is.na(chunk_info$name[-1])))
+
+}
+          )
