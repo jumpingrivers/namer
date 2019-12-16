@@ -1,9 +1,18 @@
 # namer (development version)
+
+* `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (@pat-s, #23).
+
+* new function `unname_dir_chunks()` that works in the same way as `name_dir_chunks()` (@pat-s, #23)
+
+* rename `unname_all_chunks()` to `unname_chunks()` to be consistend with `name_chunks()` (@pat-s, #23)
+
+* added some `cli` verbosity (@pat-s, #23)
+
+# namer 0.1.5
+
+* The tests using rmarkdown are now skipped if Pandoc 1.12.3 (minimal version for rmarkdown) is not available.
+
 * unname_all_chunks now accepts argument `chunk_name_prefix` with the prefix of the chunknames to be unnamed (@HanOostdijk, #22)
-* `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (@pat-s, #<>).
-* new function `unname_dir_chunks()` that works in the same way as `name_dir_chunks()` (@pat-s, #<>)
-* rename `unname_all_chunks()` to `unname_chunks()` to be consistend with `name_chunks()`
-* added some `cli` verbosity (@pat-s, #<>)
 
 # namer 0.1.4
 
