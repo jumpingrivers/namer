@@ -11,3 +11,4 @@
 ^namer\.Rproj$
 ^\.Rproj\.user$
 .git
+^man-roxygen

@@ -6,7 +6,8 @@
 #'  before pushing them to your code base. Such automatic
 #'  chunk labelling is best paired with version control.
 #'
-#' @param path Path to file
+#' @template path
+#' @template unname
 #'
 #' @export
 #'
@@ -20,7 +21,7 @@
 #' file.edit(temp_file_path)
 #' }
 #' file.remove(temp_file_path)
-name_chunks <- function(path){
+name_chunks <- function(path, unname = FALSE){
   # read the whole file
   lines <- readLines(path)
 
@@ -30,6 +31,11 @@ name_chunks <- function(path){
   # early exit if no chunk
   if(is.null(chunk_headers_info)){
     return(invisible("TRUE"))
+  }
+
+  # check if a force-unname should be done
+  if (isTRUE(unname)) {
+    unname_chunks(path)
   }
 
   # filter the one corresponding to unnamed chunks
@@ -94,7 +100,8 @@ Maybe namer::unname_chunks before running name_chunks.")
 #'
 #' @inherit name_chunks details
 #'
-#' @param dir Path to folder
+#' @template dir
+#' @template unname
 #'
 #' @export
 #'
@@ -114,7 +121,15 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' file.edit(file.path(temp_dir,
 #'                    "examples", "example1.Rmd"))
 #' }
-name_dir_chunks <- function(dir){
+name_dir_chunks <- function(dir, unname = FALSE){
+
+  if (isTRUE(unname)) {
+    cli::cat_rule("Unnaming all chunks")
+    unname_dir_chunks(dir)
+  }
+
+  cli::cat_rule("Naming all chunks")
+
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)
 }
