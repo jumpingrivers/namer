@@ -41,7 +41,6 @@ Imports:
 RoxygenNote: 7.0.2
 Suggests: 
     testthat,
-    covr,
     rmarkdown,
     knitr,
     UNF

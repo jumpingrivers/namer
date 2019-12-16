@@ -4,9 +4,6 @@ language: R
 sudo: false
 cache: packages
 
-after_success:
-    - Rscript -e 'covr::coveralls()'
-
 before_deploy:
   - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
   - Rscript -e 'install.packages("pkgdown")'
@@ -18,7 +15,7 @@ deploy:
   skip_cleanup: true
 
 after_success:
-  - Rscript -e 'library(covr);coveralls(coverage = print(package_coverage(quiet = FALSE)))'
+  - Rscript -e 'install.packages("covr");covr::coveralls()'
 
 stages:
   - name: deploy
