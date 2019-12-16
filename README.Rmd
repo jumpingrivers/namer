@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# namer
+
+<!-- badges: start -->
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) [![Travis build status](https://travis-ci.org/lockedata/namer.svg?branch=master)](https://travis-ci.org/lockedata/namer) [![Coverage status](https://coveralls.io/repos/github/lockedata/namer/badge.svg)](https://coveralls.io/r/lockedata/namer?branch=master) [![Locke Data Slack](https://img.shields.io/badge/Slack-discuss-blue.svg?logo=slack&longCache=true&style=flat)](https://join.slack.com/t/lockedata/shared_invite/enQtMjkwNjY3ODkwMzg2LTI1OGU1NTM3ZGIyZGFiNTdlODI3MzU2N2ZlNDczMjM4M2U2OWVmNDMzZTQ1ZGNlZDQ3MGM2MGVjMjI2MWIyMjI)
+<!-- badges: end -->
+
+```{r child="man/rmdfragments/intro.Rmd"} 
+```
+
+[![Example of use](man/figures/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files)
+
+## Use
+
+```{r child="man/rmdfragments/use.Rmd"} 
+```
+
+
+## Installation
+
+Install `namer` from CRAN
+
+```r
+install.packages("namer")
+```
+
+Or get the dev version from this repo using:
+
+``` r
+remotes::install_github("lockedata/namer")
+```
+
+## Contributing
+
+Wanna report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md). 
+
+ Please note that this R package is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this package project you agree to abide by its terms.
