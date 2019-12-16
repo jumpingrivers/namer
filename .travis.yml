@@ -6,7 +6,7 @@ cache: packages
 
 before_deploy:
   - Rscript -e 'remotes::install_github("lockedatapublished/lockedatapkg")'
-  - Rscript -e 'install.packages("pkgdown")'
+  - Rscript -e 'remotes::install_github("r-lib/pkgdown")'
 
 
 deploy:
