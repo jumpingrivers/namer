@@ -1,3 +1,5 @@
+# namer (development version)
+
 # namer 0.1.5
 
 * The tests using rmarkdown are now skipped if Pandoc 1.12.3 (minimal version for rmarkdown) is not available.
