@@ -98,6 +98,12 @@
 <h1 class="page-header">
 <a href="#namer-development-version" class="anchor"></a>namer (development version)<small> Unreleased </small>
 </h1>
+<ul>
+<li><p><code><a href="../reference/name_chunks.html">name_chunks()</a></code> and <code><a href="../reference/name_dir_chunks.html">name_dir_chunks()</a></code> are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (<a href='https://github.com/pat-s'>@pat-s</a>, <a href='https://github.com/lockedata/namer/issues/23'>#23</a>).</p></li>
+<li><p>new function <code><a href="../reference/unname_dir_chunks.html">unname_dir_chunks()</a></code> that works in the same way as <code><a href="../reference/name_dir_chunks.html">name_dir_chunks()</a></code> (<a href='https://github.com/pat-s'>@pat-s</a>, <a href='https://github.com/lockedata/namer/issues/23'>#23</a>)</p></li>
+<li><p>rename <code><a href="../reference/unname_chunks.html">unname_all_chunks()</a></code> to <code><a href="../reference/unname_chunks.html">unname_chunks()</a></code> to be consistent with <code><a href="../reference/name_chunks.html">name_chunks()</a></code> (<a href='https://github.com/pat-s'>@pat-s</a>, <a href='https://github.com/lockedata/namer/issues/23'>#23</a>). <code><a href="../reference/unname_chunks.html">unname_all_chunks()</a></code> will be deprecated in a future version and currently gives a warning.</p></li>
+<li><p>added some <code>cli</code> verbosity (<a href='https://github.com/pat-s'>@pat-s</a>, <a href='https://github.com/lockedata/namer/issues/23'>#23</a>)</p></li>
+</ul>
 </div>
     <div id="namer-0-1-5" class="section level1">
 <h1 class="page-header">

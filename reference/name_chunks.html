@@ -99,7 +99,7 @@
     <p>Name unnamed chunks in a single file using the filename with extension stripped as basis.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>name_chunks</span>(<span class='no'>path</span>)</pre>
+    <pre class="usage"><span class='fu'>name_chunks</span>(<span class='no'>path</span>, <span class='kw'>unname</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -107,6 +107,13 @@
     <tr>
       <th>path</th>
       <td><p>Path to file</p></td>
+    </tr>
+    <tr>
+      <th>unname</th>
+      <td><p>Should all chunks be unnamed before naming? Default is `FALSE`.
+Turning this option on will cause all existing labels to be overwritten. In
+contrast, with its default `unname = FALSE` only unlabelled chunks will be
+named.</p></td>
     </tr>
     </table>
 

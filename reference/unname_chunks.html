@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Name chunks of all Rmds in a dir — name_dir_chunks • namer</title>
+<title>Unname chunks in a single file — unname_chunks • namer</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Name chunks of all Rmds in a dir</a>
+      <a class="navbar-brand" href="../index.html">Unname chunks in a single file</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -90,30 +90,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Name chunks of all Rmds in a dir</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lockedata/namer/blob/master/R/name_chunks.R'><code>R/name_chunks.R</code></a></small>
-    <div class="hidden name"><code>name_dir_chunks.Rd</code></div>
+    <h1>Unname chunks in a single file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lockedata/namer/blob/master/R/unname_chunks.R'><code>R/unname_chunks.R</code></a></small>
+    <div class="hidden name"><code>unname_chunks.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Name unnamed chunks in a dir using the filenames with extension stripped as basis.</p>
+    <p>Unname in a single file all chunks,
+or alternatively only unname the chunknames with a given prefix.
+In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>name_dir_chunks</span>(<span class='no'>dir</span>, <span class='kw'>unname</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>unname_chunks</span>(<span class='no'>path</span>, <span class='kw'>chunk_name_prefix</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>unname_all_chunks</span>(<span class='no'>path</span>, <span class='kw'>chunk_name_prefix</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dir</th>
-      <td><p>Path to folder</p></td>
+      <th>path</th>
+      <td><p>Path to file</p></td>
     </tr>
     <tr>
-      <th>unname</th>
-      <td><p>Should all chunks be unnamed before naming? Default is `FALSE`.
-Turning this option on will cause all existing labels to be overwritten. In
-contrast, with its default `unname = FALSE` only unlabelled chunks will be
-named.</p></td>
+      <th>chunk_name_prefix</th>
+      <td><p>Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)</p></td>
     </tr>
     </table>
 
@@ -124,19 +125,21 @@ named.</p></td>
  chunk labelling is best paired with version control.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>temp_dir</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>()
-<span class='co'># just to make sure we're not overwriting</span>
-<span class='kw'>if</span>(<span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/file_access.html'>dir_exists</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>temp_dir</span>, <span class='st'>"examples"</span>))){
-<span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/delete.html'>dir_delete</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>temp_dir</span>, <span class='st'>"examples"</span>))
+    <pre class="examples"><div class='input'><span class='co'># remove all chunklabels except the one named 'setup'</span>
+<span class='no'>temp_file_path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"test1.Rmd"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"examples"</span>, <span class='st'>"example4.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"namer"</span>),
+          <span class='no'>temp_file_path</span>,
+          <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>unname_chunks</span>(<span class='no'>temp_file_path</span>)
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+<span class='fu'><a href='https://rdrr.io/r/utils/file.edit.html'>file.edit</a></span>(<span class='no'>temp_file_path</span>)
 }
-<span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/copy.html'>dir_copy</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"examples"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"namer"</span>),
-            <span class='no'>temp_dir</span>)
- <span class='co'># this is an example file that'd fail</span>
-<span class='kw pkg'>fs</span><span class='kw ns'>::</span><span class='fu'><a href='http://fs.r-lib.org/reference/delete.html'>file_delete</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>temp_dir</span>,
-                         <span class='st'>"examples"</span>, <span class='st'>"example4.Rmd"</span>))
-<span class='fu'>name_dir_chunks</span>(<span class='no'>temp_dir</span>)</div><div class='output co'>#&gt; ── Naming all chunks ───────────────────────────────────────────────────────────</div><div class='input'><span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
-<span class='fu'><a href='https://rdrr.io/r/utils/file.edit.html'>file.edit</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='no'>temp_dir</span>,
-                   <span class='st'>"examples"</span>, <span class='st'>"example1.Rmd"</span>))
+<span class='co'># remove all chunk labels starting with 'example4'</span>
+<span class='no'>temp_file_path</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"test2.Rmd"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"examples"</span>, <span class='st'>"example4.Rmd"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"namer"</span>),
+          <span class='no'>temp_file_path</span>,
+          <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>unname_chunks</span>(<span class='no'>temp_file_path</span>,<span class='kw'>chunk_name_prefix</span><span class='kw'>=</span><span class='st'>'example4'</span>)
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()){
+<span class='fu'><a href='https://rdrr.io/r/utils/file.edit.html'>file.edit</a></span>(<span class='no'>temp_file_path</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
