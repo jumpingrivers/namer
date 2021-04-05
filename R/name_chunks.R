@@ -10,6 +10,7 @@
 #'
 #' @template path
 #' @template unname
+#' @template prefix
 #'
 #' @export
 #'
@@ -23,7 +24,7 @@
 #' file.edit(temp_file_path)
 #' }
 #' file.remove(temp_file_path)
-name_chunks <- function(path, unname = FALSE){
+name_chunks <- function(path, unname = FALSE, prefix){
   # read the whole file
   lines <- readLines(path)
 
@@ -50,13 +51,15 @@ name_chunks <- function(path, unname = FALSE){
 
   # act only if needed!
   if(no_unnamed > 0){
-    # create new chunk names
-    filename <- fs::path_ext_remove(path)
-    filename <- fs::path_file(filename)
+    if (missing(prefix)) {
+      # create new chunk names
+      filename <- fs::path_ext_remove(path)
+      prefix <- fs::path_file(filename)
+    }
     # support for bookdown text references by removing underscores
     # https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#fnref5
-    filename <- clean_latex_special_characters(filename)
-    new_chunk_names <-  glue::glue("{filename}-{1:no_unnamed}")
+    prefix <- clean_latex_special_characters(prefix)
+    new_chunk_names <-  glue::glue("{prefix}-{1:no_unnamed}")
     new_chunk_names <- as.character(new_chunk_names)
     # and write to which line they correspond
     names(new_chunk_names) <- unique(unnamed$index)
