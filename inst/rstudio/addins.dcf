@@ -1,4 +1,14 @@
-Name: Label Rmd Chunks
+Name: Label Current Rmd Chunks
 Description: labels unnamed chunk of the active R Markdown document, based on the filename.
 Binding: name_chunks_addin
+Interactive: false
+
+Name: Label Rmd Chunks from File
+Description: labels unnamed chunk of a chosen R Markdown document, based on the filename.
+Binding: name_chunks_file_addin
+Interactive: true
+
+Name: Label Rmd Chunks from Directory
+Description: labels unnamed chunks of all R Markdown document in a Directory.
+Binding: name_chunks_directory_addin
 Interactive: true
