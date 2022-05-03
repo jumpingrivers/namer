@@ -1,28 +1,47 @@
-# Contributing guide
+# Contributing to namer
 
-### Code of Conduct
-Anyone getting involved in this package agrees to our [Code of Conduct](CONDUCT.md). If someone is breaking the [Will Wheaton rule aka *Don't be a dick*](https://dontbeadickday.com/), or breaking the Code of Conduct, please let me know at steph@itsalocke.com or [keybase.io/stephlocke](https://keybase.io/stephlocke).
+This outlines how to propose a change to namer. 
+For more detailed info about contributing to this, and other tidyverse packages, please see the
+[**development contributing guide**](https://rstd.io/tidy-contrib). 
 
-### Bug reports
-When you file a bug report, please spend some time making it easy for us to follow and reproduce. The more time you spend on making the bug report coherent, the more time we can dedicate to investigate the bug as opposed to the bug report. We recommend using [`reprex`](https://reprex.tidyverse.org/) when providing minimal examples.
+## Fixing typos
 
-If you need a secure way to communicate with the maintainer of this package, message her via [her Keybase account](https://keybase.io/stephlocke).
+You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the _source_ file. 
+This generally means you'll need to edit [roxygen2 comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`, not a `.Rd` file. 
+You can find the `.R` file that generates the `.Rd` by reading the comment in the first line.
 
-### Ideas
-Got an idea for how we can improve the package? Awesome stuff!
+## Bigger changes
 
-Please [raise it in the issue tracker](issues) with some succinct information on expected behaviour of the enhancement and why you think it'll improve the package.
+If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
+If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
+[reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
 
-### Package development
-We really want people to contribute to the package. A great way to start doing this is to look at the help wanted issues and/or contribute an example.
+### Pull request process
 
+*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("jumpingrivers/namer", fork = TRUE)`.
 
-### Conventions
-We're relatively loose on coding conventions. 
+*   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
+    If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
+*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
 
-- Datasets are lower-case with underscores between words
-- R code should be formatted with the "Reformat code" option in RStudio
-- There are no standards for base R plots
-- My preferred ggplot2 themes are `theme_minimal` where axes labels matter and `theme_void` when they do not but I'm OK with the default ggplot2 theming if you want to avoid writing longer ggplot2 code.
+*   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
+    The title of your PR should briefly describe the change.
+    The body of your PR should contain `Fixes #issue-number`.
 
-New features should be accompanied by new unit tests. We're glad to help with that if you're new to testing!
+*  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
+
+### Code style
+
+*   New code should follow the tidyverse [style guide](https://style.tidyverse.org). 
+    You can use the [styler](https://CRAN.R-project.org/package=styler) package to apply these styles, but please don't restyle code that has nothing to do with your PR.  
+
+*  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), for documentation.  
+
+*  We use [testthat](https://cran.r-project.org/package=testthat) for unit tests. 
+   Contributions with test cases included are easier to accept.  
+
+## Code of Conduct
+
+Please note that the namer project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
+project you agree to abide by its terms.

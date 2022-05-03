@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 # namer
 
 <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![Travis build status](https://travis-ci.org/lockedata/namer.svg?branch=master)](https://travis-ci.org/lockedata/namer) [![Coverage status](https://coveralls.io/repos/github/lockedata/namer/badge.svg)](https://coveralls.io/r/lockedata/namer?branch=master) [![Locke Data Slack](https://img.shields.io/badge/Slack-discuss-blue.svg?logo=slack&longCache=true&style=flat)](https://join.slack.com/t/lockedata/shared_invite/enQtMjkwNjY3ODkwMzg2LTI1OGU1NTM3ZGIyZGFiNTdlODI3MzU2N2ZlNDczMjM4M2U2OWVmNDMzZTQ1ZGNlZDQ3MGM2MGVjMjI2MWIyMjI)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
+[![R-CMD-check](https://github.com/jumpingrivers/namer/workflows/R-CMD-check/badge.svg)](https://github.com/jumpingrivers/namer/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/namer)](https://CRAN.R-project.org/package=namer)
 <!-- badges: end -->
 
 ```{r child="man/rmdfragments/intro.Rmd"} 
@@ -41,11 +43,13 @@ install.packages("namer")
 Or get the dev version from this repo using:
 
 ``` r
-remotes::install_github("lockedata/namer")
+remotes::install_github("jumpingrivers/namer")
 ```
 
 ## Contributing
 
-Wanna report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md). 
+Want to report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md). 
 
- Please note that this R package is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this package project you agree to abide by its terms.
+## Code of Conduct
+  
+Please note that the namer project is released with a [Contributor Code of Conduct](https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

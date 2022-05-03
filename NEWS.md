@@ -1,3 +1,7 @@
+# namer 0.1.6
+
+* Update maintainer
+
 # namer (development version)
 
 * `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (@pat-s, #23).
