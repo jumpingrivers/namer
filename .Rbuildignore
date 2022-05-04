@@ -12,3 +12,4 @@
 ^\.Rproj\.user$
 .git
 ^man-roxygen
+^pkgdown$

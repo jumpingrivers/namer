@@ -1,7 +1,4 @@
+url: https://jumpingrivers.github.io/namer/
 template:
-  package: lockedatapkg
-  default_assets: false
+  bootstrap: 5
 
-authors:
-  Locke Data:
-    href: "https://itsalocke.com/"
