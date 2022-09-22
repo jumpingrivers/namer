@@ -4,6 +4,8 @@
 #' or alternatively only unname the chunknames with a given prefix.
 #' In both cases, the chunk name "setup" is preserved, that chunk is never unnamed.
 #'
+#' @returns Always returns TRUE invisibly. Called for side effects.
+#'
 #' @inherit name_chunks details
 #'
 #' @template path
@@ -60,11 +62,15 @@ unname_chunks <- function(path, chunk_name_prefix = NULL) {
 
   # save file
   writeLines(lines, path)
+
+  return(invisible(TRUE))
 }
 
 #' @title  Unname chunks of all Rmds in a dir
 #'
 #' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
+#'
+#' @returns Always returns TRUE invisibly. Called for side effects.
 #'
 #' @inherit name_chunks details
 #'
@@ -91,6 +97,7 @@ unname_chunks <- function(path, chunk_name_prefix = NULL) {
 unname_dir_chunks <- function(dir){
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_unname_chunks)
+  return(invisible(TRUE))
 }
 
 chatty_unname_chunks <- function(path){
