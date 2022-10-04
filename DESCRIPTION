@@ -52,9 +52,7 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    testthat,
-    UNF
-Remotes: leeper/UNF
+    testthat
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
