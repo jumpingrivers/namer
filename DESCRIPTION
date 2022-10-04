@@ -58,5 +58,6 @@ Remotes: leeper/UNF
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
+Language: en-GB
 LazyData: true
 RoxygenNote: 7.2.1
