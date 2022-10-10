@@ -8,8 +8,8 @@
 <meta name="description" content="namer">
 <title>Intro to the namer package • namer</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Intro to the namer package">
 <meta property="og:description" content="namer">
@@ -66,11 +66,11 @@
 
 
 <script src="namer_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Intro to the namer package</h1>
                         <h4 data-toc-skip class="author">M. Salmon</h4>
             
-            <h4 data-toc-skip class="date">2022-05-04</h4>
+            <h4 data-toc-skip class="date">2022-10-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jumpingrivers/namer/blob/HEAD/vignettes/namer.Rmd" class="external-link"><code>vignettes/namer.Rmd</code></a></small>
       <div class="d-none name"><code>namer.Rmd</code></div>
@@ -78,23 +78,23 @@
 
     
     
-<p>The goal of namer is to name the chunks of R Markdown files. It’s your safety net when you’ve (willingly) forgotten to name most chunks of all R Markdown files in a folder. <code>namer</code> does <em>not</em> give meaningful labels to your chunks, but it gives them labels that won’t change depending on their position like the automatic <code>knitr:::unnamed_chunk</code> function does when knitting. So you can e.g. shuffle your chunks and not loose their cache, or more easily debug over a whole folder!</p>
+<p>The goal of {namer} is to name the chunks of R Markdown files. It’s your safety net when you’ve (willingly) forgotten to name most chunks of all R Markdown files in a folder. {namer} does <em>not</em> give meaningful labels to your chunks, but it gives them labels that won’t change depending on their position like the automatic <code>knitr:::unnamed_chunk</code> function does when knitting. So you can e.g. shuffle your chunks and not loose their cache, or more easily debug over a whole folder!</p>
 <p>For context about <em>why</em> you should name your R Markdown chunks, read <a href="https://masalmon.eu/2017/08/08/chunkpets/" class="external-link">this blog post</a>.</p>
-<p>The screenshot below is <a href="https://github.com/lockedata/pres-datascience/pull/1" class="external-link">a real life example</a>, result of running <code>namer::name_dir_chunks("pres")</code>. In each of the files in the dir “pres”, it labelled chunks using the filename and numbers.</p>
+<p>The screenshot below is <a href="https://github.com/lockedata/pres-datascience/pull/1/" class="external-link">a real life example</a>, result of running <code>namer::name_dir_chunks("pres")</code>. In each of the files in the dir “pres”, it labelled chunks using the filename and numbers.</p>
 <p><a href="https://github.com/lockedata/pres-datascience/pull/1/files" class="external-link"><img src="../reference/figures/screenshot.png" alt="Example of use"></a></p>
 <div class="section level2">
 <h2 id="use">Use<a class="anchor" aria-label="anchor" href="#use"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem. The “test” folder first contains R Markdown files with unnamed chunks. After running <code>name_dir_chunks</code>, they’re all named, with names using the filenames as basis.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/copy.html" class="external-link">dir_copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, package <span class="op">=</span> <span class="st">"namer"</span><span class="op">)</span>,
-            <span class="st">"test"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/name_dir_chunks.html">name_dir_chunks</a></span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/file.edit.html" class="external-link">file.edit</a></span><span class="op">(</span><span class="st">"test/example1.Rmd"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/copy.html" class="external-link">dir_copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, package <span class="op">=</span> <span class="st">"namer"</span><span class="op">)</span>,</span>
+<span>            <span class="st">"test"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/name_dir_chunks.html">name_dir_chunks</a></span><span class="op">(</span><span class="st">"test"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/file.edit.html" class="external-link">file.edit</a></span><span class="op">(</span><span class="st">"test/example1.Rmd"</span><span class="op">)</span></span></code></pre></div>
 <p>There’s also <code><a href="../reference/name_chunks.html">name_chunks()</a></code> for use on a single R Markdown file; and <code><a href="../reference/unname_chunks.html">unname_chunks()</a></code> to unname all chunks of a single R Markdown file as well as <code><a href="../reference/unname_dir_chunks.html">unname_dir_chunks()</a></code> to unname all chunks of all R Markdown files in a directory, which can be useful when cleaning your chunk labels.</p>
-<p>By default <code><a href="../reference/unname_chunks.html">unname_chunks()</a></code> unnames all chunks with exception of the ‘setup’ chunk. By using the argument <code>chunk_name_prefix</code> one can indicate the prefix of the labels that will be unnamed. Useful when one refers to a label by using chunk option <code>ref.label</code> so that it is inconvenient when that labeel is unnamed. By setting <code>chunk_name_prefix</code> equal to ‘the filename with extension stripped’ followed with a ‘-’ (dash) only the labels generated by <code><a href="../reference/name_chunks.html">name_chunks()</a></code> will be unnamed.</p>
+<p>By default <code><a href="../reference/unname_chunks.html">unname_chunks()</a></code> unnames all chunks with exception of the ‘setup’ chunk. By using the argument <code>chunk_name_prefix</code> one can indicate the prefix of the labels that will be unnamed. Useful when one refers to a label by using chunk option <code>ref.label</code> so that it is inconvenient when that label is unnamed. By setting <code>chunk_name_prefix</code> equal to ‘the filename with extension stripped’ followed with a ‘-’ (dash) only the labels generated by <code><a href="../reference/name_chunks.html">name_chunks()</a></code> will be unnamed.</p>
 <p>If you’re working with RStudio, installing the package will have installed an addin for labelling chunks of <em>any R Markdown document you select</em>.</p>
-<p><strong>When using <code>namer</code>, please check the edits before pushing them to your code base. Such automatic chunk labelling is best paired with <a href="http://happygitwithr.com/" class="external-link">version control</a>.</strong></p>
+<p><strong>When using {namer}, please check the edits before pushing them to your code base. Such automatic chunk labelling is best paired with <a href="https://happygitwithr.com/" class="external-link">version control</a>.</strong></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
@@ -109,7 +109,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>
