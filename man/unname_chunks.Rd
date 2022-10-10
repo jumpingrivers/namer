@@ -14,6 +14,9 @@ unname_all_chunks(path, chunk_name_prefix = NULL)
 
 \item{chunk_name_prefix}{Character string with prefix of chunknames that will be removed. Default: NULL (indicating all chunknames will be removed except the one named `setup`)}
 }
+\value{
+Always returns TRUE invisibly. Called for side effects.
+}
 \description{
 Unname in a single file all chunks,
 or alternatively only unname the chunknames with a given prefix.

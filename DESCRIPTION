@@ -53,10 +53,10 @@ Suggests:
     covr,
     knitr,
     rmarkdown,
-    testthat,
-    UNF
+    testthat
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
+Language: en-GB
 LazyData: true
 RoxygenNote: 7.1.2
