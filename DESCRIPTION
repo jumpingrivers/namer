@@ -36,7 +36,7 @@ Authors@R:
              comment = c(ORCID = "0000-0003-0748-6624")))
 Description: It names the 'R Markdown' chunks of files based on
     the filename.
-License: GPL (>= 3)
+License: MIT + file LICENSE
 URL: https://github.com/jumpingrivers/namer,
     https://jumpingrivers.github.io/namer/
 BugReports: https://github.com/jumpingrivers/namer/issues
@@ -50,6 +50,7 @@ Imports:
     rstudioapi,
     tibble
 Suggests: 
+    covr,
     knitr,
     rmarkdown,
     testthat
@@ -58,4 +59,4 @@ VignetteBuilder:
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.1.2

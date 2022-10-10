@@ -13,3 +13,4 @@
 .git
 ^man-roxygen
 ^pkgdown$
+^codecov\.yml$
