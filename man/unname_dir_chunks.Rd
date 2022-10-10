@@ -9,6 +9,9 @@ unname_dir_chunks(dir)
 \arguments{
 \item{dir}{Path to folder}
 }
+\value{
+Always returns TRUE invisibly. Called for side effects.
+}
 \description{
 Name unnamed chunks in a dir using the filenames with extension stripped as basis.
 }

@@ -16,15 +16,16 @@ knitr::opts_chunk$set(
 # namer
 
 <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/jumpingrivers/namer/workflows/R-CMD-check/badge.svg)](https://github.com/jumpingrivers/namer/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/namer)](https://CRAN.R-project.org/package=namer)
+[![Codecov test coverage](https://codecov.io/gh/jumpingrivers/namer/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jumpingrivers/namer?branch=main)
 <!-- badges: end -->
 
 ```{r child="man/rmdfragments/intro.Rmd"} 
 ```
 
-[![Example of use](man/figures/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files)
+[![Example of use](man/figures/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files/)
 
 ## Use
 
@@ -34,7 +35,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-Install `namer` from CRAN
+Install {namer} from CRAN
 
 ```r
 install.packages("namer")
@@ -45,11 +46,6 @@ Or get the dev version from this repo using:
 ``` r
 remotes::install_github("jumpingrivers/namer")
 ```
-
-## Contributing
-
-Want to report a bug or suggest a feature? Great stuff! For more information on how to contribute check out [our contributing guide](.github/CONTRIBUTING.md). 
-
 ## Code of Conduct
-  
+
 Please note that the namer project is released with a [Contributor Code of Conduct](https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

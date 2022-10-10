@@ -6,6 +6,8 @@
 #'  before pushing them to your code base. Such automatic
 #'  chunk labelling is best paired with version control.
 #'
+#' @returns Always returns TRUE invisibly. Called for side effects.
+#'
 #' @template path
 #' @template unname
 #'
@@ -30,7 +32,7 @@ name_chunks <- function(path, unname = FALSE){
 
   # early exit if no chunk
   if(is.null(chunk_headers_info)){
-    return(invisible("TRUE"))
+    return(invisible(TRUE))
   }
 
   # check if a force-unname should be done
@@ -91,12 +93,14 @@ Maybe namer::unname_chunks before running name_chunks.")
     # save file
     writeLines(lines, path)
 }
-  return(invisible("TRUE"))
+  return(invisible(TRUE))
 }
 
 #' @title  Name chunks of all Rmds in a dir
 #'
 #' @description  Name unnamed chunks in a dir using the filenames with extension stripped as basis.
+#'
+#' @returns Always returns TRUE invisibly. Called for side effects.
 #'
 #' @inherit name_chunks details
 #'
@@ -132,6 +136,8 @@ name_dir_chunks <- function(dir, unname = FALSE){
 
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_name_chunks)
+
+  return(invisible(TRUE))
 }
 
 chatty_name_chunks <- function(path){
