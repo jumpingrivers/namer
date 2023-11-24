@@ -134,7 +134,7 @@ name_dir_chunks <- function(dir, unname = FALSE){
 
   cli::cat_rule("Naming all chunks")
 
-  rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
+  rmds <- fs::dir_ls(dir, regexp = "*.[RrQq]md")
   purrr::walk(rmds, chatty_name_chunks)
 
   return(invisible(TRUE))
