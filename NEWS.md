@@ -1,3 +1,7 @@
+# namer 0.1.8
+
+* Update maintainer
+
 # namer 0.1.7
 
 * `name_dir_chunks()` now also names chunks in Quarto-Files. Note that Quarto chunks are labelled in the RMarkdown style (` ```{r mylabel} `), *not* in the Quarto style (see below):

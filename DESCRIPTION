@@ -1,11 +1,11 @@
 Package: namer
 Title: Names Your 'R Markdown' Chunks
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: 
-    c(person(given = "Rhian",
-             family = "Davies",
+    c(person(given = "Colin",
+             family = "Gillespie",
              role = c("aut", "cre"),
-             email = "rhian@jumpingrivers.com"),
+             email = "colin@jumpingrivers.com"),
     person(given = "Steph",
              family = "Locke",
              role = c("aut"),
@@ -59,4 +59,4 @@ VignetteBuilder:
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
