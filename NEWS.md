@@ -1,3 +1,7 @@
+# namer 0.1.8
+
+* Update maintainer
+
 # namer 0.1.7
 
 * `name_dir_chunks()` now also names chunks in Quarto-Files. Note that Quarto chunks are labelled in the RMarkdown style (` ```{r mylabel} `), *not* in the Quarto style (see below):
@@ -5,14 +9,13 @@
 ````
 ```{r}
 #| label: mylabel
-``` 
 ````
 
 # namer 0.1.6
 
 * Update maintainer
 
-# namer (development version)
+# namer 0.1.5
 
 * `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (@pat-s, #23).
 
@@ -21,8 +24,6 @@
 * rename `unname_all_chunks()` to `unname_chunks()` to be consistent with `name_chunks()` (@pat-s, #23). `unname_all_chunks()` will be deprecated in a future version and currently gives a warning.
 
 * added some `cli` verbosity (@pat-s, #23)
-
-# namer 0.1.5
 
 * The tests using rmarkdown are now skipped if Pandoc 1.12.3 (minimal version for rmarkdown) is not available.
 

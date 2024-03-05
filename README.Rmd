@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/jumpingrivers/namer/workflows/R-CMD-check/badge.svg)](https://github.com/jumpingrivers/namer/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/namer)](https://CRAN.R-project.org/package=namer)
 [![Codecov test coverage](https://codecov.io/gh/jumpingrivers/namer/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jumpingrivers/namer?branch=main)
+[![R-CMD-check](https://github.com/jumpingrivers/namer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jumpingrivers/namer/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ```{r child="man/rmdfragments/intro.Rmd"} 
