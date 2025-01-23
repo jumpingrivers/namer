@@ -1,54 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/404.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/SUPPORT.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/articles/namer.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/name_chunks.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/name_dir_chunks.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/unname_chunks.html</loc>
-  </url>
-  <url>
-    <loc>https://jumpingrivers.github.io/namer/reference/unname_dir_chunks.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://jumpingrivers.github.io/namer/404.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/CONTRIBUTING.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/LICENSE-text.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/LICENSE.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/SUPPORT.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/articles/index.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/articles/namer.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/authors.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/index.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/news/index.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/index.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/name_chunks.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/name_dir_chunks.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/pipe.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/unname_chunks.html</loc></url>
+<url><loc>https://jumpingrivers.github.io/namer/reference/unname_dir_chunks.html</loc></url>
 </urlset>
+
