@@ -14,3 +14,4 @@
 ^man-roxygen
 ^pkgdown$
 ^codecov\.yml$
+^.lintr$

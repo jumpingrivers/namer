@@ -4,7 +4,7 @@ transform_params <- function(params){
   params_string <- try(eval(parse(text = paste('alist(', quote_label(params), ')'))),
                silent = TRUE)
 
-  if(inherits(params_string, "try-error")){
+  if (inherits(params_string, "try-error")) {
     params <- sub(" ", ", ", params)
     params_string <- eval(parse(text = paste('alist(', quote_label(params), ')')))
   }
@@ -16,15 +16,14 @@ transform_params <- function(params){
                  options = sub(params_string[[1]], "", params))
 }
 
-
-parse_label <- function(label){
+parse_label <- function(label) {
   language_name <- sub(" ", "\\/", label)
   language_name <- unlist(strsplit(language_name, "\\/"))
 
-  if(length(language_name) == 1){
+  if (length(language_name) == 1) {
     tibble::tibble(language = trimws(language_name[1]),
                    name = NA)
-  }else{
+  } else {
     tibble::tibble(language = trimws(language_name[1]),
                    name = trimws(language_name[2]))
   }
@@ -32,7 +31,7 @@ parse_label <- function(label){
 
 # from a chunk header
 # to a tibble with language, name, option, option values
-parse_chunk_header <- function(chunk_header){
+parse_chunk_header <- function(chunk_header) {
   # remove boundaries
   chunk_header <- gsub("```\\{", "", chunk_header)
   chunk_header <- gsub("\\}", "", chunk_header)
@@ -43,7 +42,7 @@ parse_chunk_header <- function(chunk_header){
 }
 
 digest_chunk_header <- function(chunk_header_index,
-                                lines){
+                                lines) {
   # parse the chunk header
   chunk_info <- parse_chunk_header(
     lines[chunk_header_index])

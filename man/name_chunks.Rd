@@ -20,7 +20,8 @@ named.}
 Always returns TRUE invisibly. Called for side effects.
 }
 \description{
-Name unnamed chunks in a single file using the filename with extension stripped as basis.
+Name unnamed chunks in a single file using the
+filename with extension stripped as basis.
 }
 \details{
 When using namer, please check the edits
