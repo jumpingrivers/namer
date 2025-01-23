@@ -4,7 +4,7 @@
 \alias{name_chunks}
 \title{Name chunks in a single file}
 \usage{
-name_chunks(path, unname = FALSE)
+name_chunks(path, unname = FALSE, prefix)
 }
 \arguments{
 \item{path}{Path to file}
@@ -13,6 +13,8 @@ name_chunks(path, unname = FALSE)
 Turning this option on will cause all existing labels to be overwritten. In
 contrast, with its default `unname = FALSE` only unlabelled chunks will be
 named.}
+
+\item{prefix}{prefix to use to name chunks. Default to cleaned name of the Rmd.}
 }
 \value{
 Always returns TRUE invisibly. Called for side effects.
