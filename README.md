@@ -12,6 +12,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 status](https://www.r-pkg.org/badges/version/namer)](https://CRAN.R-project.org/package=namer)
 [![Codecov test
 coverage](https://codecov.io/gh/jumpingrivers/namer/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jumpingrivers/namer?branch=main)
+[![R-CMD-check](https://github.com/jumpingrivers/namer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jumpingrivers/namer/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of {namer} is to name the chunks of R Markdown files. It’s your
@@ -31,7 +32,7 @@ of running `namer::name_dir_chunks("pres")`. In each of the files in the
 dir “pres”, it labelled chunks using the filename and numbers.
 
 [![Example of
-use](man/figures/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files)
+use](man/figures/screenshot.png)](https://github.com/lockedata/pres-datascience/pull/1/files/)
 
 ## Use
 
@@ -88,3 +89,7 @@ remotes::install_github("jumpingrivers/namer")
 Please note that the namer project is released with a [Contributor Code
 of Conduct](https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
+
+------------------------------------------------------------------------
+
+Maintained by [Jumping Rivers](https://www.jumpingrivers.com)

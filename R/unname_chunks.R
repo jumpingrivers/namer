@@ -40,18 +40,18 @@ unname_chunks <- function(path, chunk_name_prefix = NULL) {
   chunk_headers_info <- get_chunk_info(lines)
 
   # early exit if no chunk
-  if(is.null(chunk_headers_info)){
+  if (is.null(chunk_headers_info)) {
     return(invisible("TRUE"))
   }
 
-  if ( is.null(chunk_name_prefix)){
+  if (is.null(chunk_name_prefix)) {
     # preserve the setup label, delete the others
     chunk_headers_info$name[chunk_headers_info$name != "setup"] <- ""
   } else {
     # preserve labels not starting with chunk_name_prefix
-    del_labels <- strtrim(chunk_headers_info$name,nchar(chunk_name_prefix)) %in%
+    del_labels <- strtrim(chunk_headers_info$name, nchar(chunk_name_prefix)) %in%
       chunk_name_prefix
-    setup_label <- !(chunk_headers_info$name %in% 'setup')
+    setup_label <- !(chunk_headers_info$name %in% "setup")
     del_labels <- del_labels & setup_label
     chunk_headers_info$name[del_labels] <- ""
   }
@@ -94,13 +94,13 @@ unname_chunks <- function(path, chunk_name_prefix = NULL) {
 #' file.edit(file.path(temp_dir,
 #'                    "examples", "example1.Rmd"))
 #' }
-unname_dir_chunks <- function(dir){
+unname_dir_chunks <- function(dir) {
   rmds <- fs::dir_ls(dir, regexp = "*.[Rr]md")
   purrr::walk(rmds, chatty_unname_chunks)
   return(invisible(TRUE))
 }
 
-chatty_unname_chunks <- function(path){
+chatty_unname_chunks <- function(path) {
   message(glue::glue("Scanning {path}..."))
   unname_chunks(path)
 }
@@ -111,5 +111,5 @@ chatty_unname_chunks <- function(path){
 #' @export
 unname_all_chunks <- function(path, chunk_name_prefix = NULL) {
   warning("please use unname_chunks() instead of unname_all_chunks()", call. = FALSE)
-  unname_chunks(path,chunk_name_prefix = NULL)
+  unname_chunks(path, chunk_name_prefix = NULL)
 }

@@ -33,7 +33,7 @@ name_chunks <- function(path, unname = FALSE, prefix) {
   chunk_headers_info <- get_chunk_info(lines)
 
   # early exit if no chunk
-  if(is.null(chunk_headers_info)){
+  if (is.null(chunk_headers_info)) {
     return(invisible(TRUE))
   }
 
@@ -50,7 +50,7 @@ name_chunks <- function(path, unname = FALSE, prefix) {
   no_unnamed <- length(unique(unnamed$index))
 
   # act only if needed!
-  if (no_unnamed > 0){
+  if (no_unnamed > 0) {
     if (missing(prefix)) {
       # create new chunk names
       filename <- fs::path_ext_remove(path)
@@ -68,7 +68,7 @@ name_chunks <- function(path, unname = FALSE, prefix) {
     existing_names <- unique(chunk_headers_info$name)
     existing_names <- existing_names[!is.na(existing_names)]
 
-    if(any(new_chunk_names %in% existing_names)){
+    if (any(new_chunk_names %in% existing_names)) {
       new_chunk_names[new_chunk_names %in% existing_names] <-
         glue::glue("{new_chunk_names[new_chunk_names %in% existing_names]}-bis")
     }
@@ -87,7 +87,7 @@ name_chunks <- function(path, unname = FALSE, prefix) {
 
     # re-get chunk names
     new_chunk_headers_info <- get_chunk_info(lines)
-    if(length(unique(new_chunk_headers_info$name)) != nrow(new_chunk_headers_info)){
+    if (length(unique(new_chunk_headers_info$name)) != nrow(new_chunk_headers_info)) {
       stop("Despite our efforts we'd be creating duplicate names.
 Had you run our script on your R Markdown before?
 Maybe namer::unname_chunks before running name_chunks.")
@@ -143,7 +143,7 @@ name_dir_chunks = function(dir, unname = FALSE) {
   return(invisible(TRUE))
 }
 
-chatty_name_chunks = function(path){
+chatty_name_chunks = function(path) {
   message(glue::glue("Scanning {path}..."))
   name_chunks(path)
 }

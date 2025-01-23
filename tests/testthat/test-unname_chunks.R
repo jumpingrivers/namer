@@ -14,7 +14,7 @@ test_that("unname_chunks works in case is.null(chunk_name_prefix) == TRUE", {
   lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)
 
-  testthat::expect_identical(chunk_info$name[1],'setup')
+  testthat::expect_identical(chunk_info$name[1], "setup")
   testthat::expect_true(all(is.na(chunk_info$name[-1])))
 
   rendering <- rmarkdown::render(temp_file_path)
@@ -36,13 +36,13 @@ test_that("unname_chunks works in case is.null(chunk_name_prefix) == FALSE", {
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
             temp_file_path)
-  unname_chunks(temp_file_path,chunk_name_prefix='example4')
+  unname_chunks(temp_file_path, chunk_name_prefix = "example4")
 
   lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)
 
-  testthat::expect_identical(chunk_info$name[1],'setup')
-  testthat::expect_identical(chunk_info$name[6],'sessioninfo')
+  testthat::expect_identical(chunk_info$name[1], "setup")
+  testthat::expect_identical(chunk_info$name[6], "sessioninfo")
   testthat::expect_true(all(is.na(chunk_info$name[2:5])))
 
   rendering <- rmarkdown::render(temp_file_path)
@@ -64,16 +64,16 @@ test_that("unname_chunks works in case chunk_name_prefix == 'setup' ", {
 
   file.copy(system.file("examples", "example4.Rmd", package = "namer"),
             temp_file_path)
-  unname_chunks(temp_file_path,chunk_name_prefix='setup')
+  unname_chunks(temp_file_path, chunk_name_prefix = "setup")
 
   lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)
 
-  testthat::expect_identical(chunk_info$name[1],'setup')
-  testthat::expect_identical(chunk_info$name[3],'example4-1')
-  testthat::expect_identical(chunk_info$name[4],'example4-1-bis')
-  testthat::expect_identical(chunk_info$name[6],'sessioninfo')
-  testthat::expect_true(all(is.na(chunk_info$name[c(2,5)])))
+  testthat::expect_identical(chunk_info$name[1], "setup")
+  testthat::expect_identical(chunk_info$name[3], "example4-1")
+  testthat::expect_identical(chunk_info$name[4], "example4-1-bis")
+  testthat::expect_identical(chunk_info$name[6], "sessioninfo")
+  testthat::expect_true(all(is.na(chunk_info$name[c(2, 5)])))
 
   rendering <- rmarkdown::render(temp_file_path)
   testthat::expect_is(rendering, "character")
@@ -85,7 +85,7 @@ test_that("unname_chunks works in case chunk_name_prefix == 'setup' ", {
   file.remove(paste0(basename, ".html"))
 })
 
-test_that("unname_all_chunks works but gives a warning",{
+test_that("unname_all_chunks works but gives a warning", {
   # check arg of tempdir
   skip_if_not_r35()
 
@@ -99,7 +99,7 @@ test_that("unname_all_chunks works but gives a warning",{
   lines <- readLines(temp_file_path)
   chunk_info <- get_chunk_info(lines)
 
-  testthat::expect_identical(chunk_info$name[1],'setup')
+  testthat::expect_identical(chunk_info$name[1], "setup")
   testthat::expect_true(all(is.na(chunk_info$name[-1])))
 
 }
