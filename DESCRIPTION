@@ -1,41 +1,23 @@
 Package: namer
 Title: Names Your 'R Markdown' Chunks
-Version: 0.1.8
-Authors@R: 
-    c(person(given = "Colin",
-             family = "Gillespie",
-             role = c("aut", "cre"),
-             email = "colin@jumpingrivers.com"),
-    person(given = "Steph",
-             family = "Locke",
-             role = c("aut"),
-             email = "steph@itsalocke.com"),
-      person(given = "Maëlle",
-             family = "Salmon",
-             role = "aut",
-             email = "maelle.salmon@yahoo.se",
-             comment = c(ORCID = "0000-0002-2815-0399")),
-      person(given = "Ellis",
-             family = "Valentiner",
-             role = "ctb"),
-      person(given = "Charlie",
-             family = "Hadley",
-             role = "ctb",
-             comment = c(ORCID = "0000-0002-3039-6849")),
-      person(given = "Jumping Rivers",
-             role = "fnd",
-             comment = "https://jumpingrivers.com"),
-      person(given = "Han",
-             family = "Oostdijk",
-             role = "ctb",
-             comment = c(ORCID = "0000-0001-6710-4566")),
-      person(given = "Patrick",
-             family = "Schratz",
-             role = "ctb",
-             email = "patrick.schratz@gmail.com",
-             comment = c(ORCID = "0000-0003-0748-6624")))
-Description: It names the 'R Markdown' chunks of files based on
-    the filename.
+Version: 0.1.9
+Authors@R: c(
+    person("Colin", "Gillespie", , "colin@jumpingrivers.com", role = c("aut", "cre")),
+    person("Steph", "Locke", , "steph@itsalocke.com", role = "aut"),
+    person("Maëlle", "Salmon", , "maelle.salmon@yahoo.se", role = "aut",
+           comment = c(ORCID = "0000-0002-2815-0399")),
+    person("Ellis", "Valentiner", role = "ctb"),
+    person("Charlie", "Hadley", role = "ctb",
+           comment = c(ORCID = "0000-0002-3039-6849")),
+    person("Jumping Rivers", role = "fnd",
+           comment = "https://jumpingrivers.com"),
+    person("Han", "Oostdijk", role = "ctb",
+           comment = c(ORCID = "0000-0001-6710-4566")),
+    person("Patrick", "Schratz", , "patrick.schratz@gmail.com", role = "ctb",
+           comment = c(ORCID = "0000-0003-0748-6624"))
+  )
+Description: It names the 'R Markdown' chunks of files based on the
+    filename.
 License: MIT + file LICENSE
 URL: https://github.com/jumpingrivers/namer,
     https://jumpingrivers.github.io/namer/

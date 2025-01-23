@@ -1,10 +1,20 @@
+# namer 0.1.9 _2025-01-23_
+
+  * Allow to choose prefix for chunk names #2 (@statnmap, #30)
+  * New addins: (@statnmap, #30)
+    - Name current Rmd file
+    - Name file chosen in a directory
+    - Name chunks from a folder
+
 # namer 0.1.8
 
 * Update maintainer
 
 # namer 0.1.7
 
-* `name_dir_chunks()` now also names chunks in Quarto-Files. Note that Quarto chunks are labelled in the RMarkdown style (` ```{r mylabel} `), *not* in the Quarto style (see below):
+* `name_dir_chunks()` now also names chunks in Quarto-Files. 
+  Note that Quarto chunks are labelled in the RMarkdown style (` ```{r mylabel} `), 
+  *not* in the Quarto style (see below):
 
 ````
 ```{r}
@@ -17,7 +27,9 @@
 
 # namer 0.1.5
 
-* `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. This ensures a consistent naming for all chunks instead of just labelling unnamed chunks (@pat-s, #23).
+* `name_chunks()` and `name_dir_chunks()` are now able to unname all chunks before naming them. 
+  This ensures a consistent naming for all chunks instead of 
+  just labelling unnamed chunks (@pat-s, #23).
 
 * new function `unname_dir_chunks()` that works in the same way as `name_dir_chunks()` (@pat-s, #23)
 

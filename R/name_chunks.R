@@ -1,6 +1,7 @@
 #' @title Name chunks in a single file
 #'
-#' @description Name unnamed chunks in a single file using the filename with extension stripped as basis.
+#' @description Name unnamed chunks in a single file using the
+#' filename with extension stripped as basis.
 #'
 #' @details When using namer, please check the edits
 #'  before pushing them to your code base. Such automatic
@@ -24,7 +25,7 @@
 #' file.edit(temp_file_path)
 #' }
 #' file.remove(temp_file_path)
-name_chunks <- function(path, unname = FALSE, prefix){
+name_chunks <- function(path, unname = FALSE, prefix) {
   # read the whole file
   lines <- readLines(path)
 
@@ -32,7 +33,7 @@ name_chunks <- function(path, unname = FALSE, prefix){
   chunk_headers_info <- get_chunk_info(lines)
 
   # early exit if no chunk
-  if(is.null(chunk_headers_info)){
+  if (is.null(chunk_headers_info)) {
     return(invisible(TRUE))
   }
 
@@ -48,9 +49,8 @@ name_chunks <- function(path, unname = FALSE, prefix){
   # count unnamed chunks
   no_unnamed <- length(unique(unnamed$index))
 
-
   # act only if needed!
-  if(no_unnamed > 0){
+  if (no_unnamed > 0) {
     if (missing(prefix)) {
       # create new chunk names
       filename <- fs::path_ext_remove(path)
@@ -68,7 +68,7 @@ name_chunks <- function(path, unname = FALSE, prefix){
     existing_names <- unique(chunk_headers_info$name)
     existing_names <- existing_names[!is.na(existing_names)]
 
-    if(any(new_chunk_names %in% existing_names)){
+    if (any(new_chunk_names %in% existing_names)) {
       new_chunk_names[new_chunk_names %in% existing_names] <-
         glue::glue("{new_chunk_names[new_chunk_names %in% existing_names]}-bis")
     }
@@ -87,7 +87,7 @@ name_chunks <- function(path, unname = FALSE, prefix){
 
     # re-get chunk names
     new_chunk_headers_info <- get_chunk_info(lines)
-    if(length(unique(new_chunk_headers_info$name)) != nrow(new_chunk_headers_info)){
+    if (length(unique(new_chunk_headers_info$name)) != nrow(new_chunk_headers_info)) {
       stop("Despite our efforts we'd be creating duplicate names.
 Had you run our script on your R Markdown before?
 Maybe namer::unname_chunks before running name_chunks.")
@@ -95,7 +95,7 @@ Maybe namer::unname_chunks before running name_chunks.")
 
     # save file
     writeLines(lines, path)
-}
+  }
   return(invisible(TRUE))
 }
 
@@ -128,7 +128,7 @@ Maybe namer::unname_chunks before running name_chunks.")
 #' file.edit(file.path(temp_dir,
 #'                    "examples", "example1.Rmd"))
 #' }
-name_dir_chunks <- function(dir, unname = FALSE){
+name_dir_chunks = function(dir, unname = FALSE) {
 
   if (isTRUE(unname)) {
     cli::cat_rule("Unnaming all chunks")
@@ -137,13 +137,13 @@ name_dir_chunks <- function(dir, unname = FALSE){
 
   cli::cat_rule("Naming all chunks")
 
-  rmds <- fs::dir_ls(dir, regexp = "*.[RrQq]md")
+  rmds = fs::dir_ls(dir, regexp = "*.[RrQq]md")
   purrr::walk(rmds, chatty_name_chunks)
 
   return(invisible(TRUE))
 }
 
-chatty_name_chunks <- function(path){
+chatty_name_chunks = function(path) {
   message(glue::glue("Scanning {path}..."))
   name_chunks(path)
 }

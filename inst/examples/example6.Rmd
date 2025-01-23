@@ -13,7 +13,9 @@ library(knitr)
 out = NULL
 for (i in as.character(unique(iris$Species))) {
   # out = c(out, knit_expand(text='#### Species = {{i}}'))
-  out <- paste0("\n\n### ", i, "###\n\n```{r ", gsub(' |°|Ñ', '', i), ", results='asis', echo=FALSE}\n\ncat(i)\n\n```\n\n&nbsp;&nbsp;\n\n\\newpage")
+  out = paste0("\n\n### ", i, "###\n\n```{r ",
+               gsub(" |°|Ñ", "", i),
+               ", results='asis', echo=FALSE}\n\ncat(i)\n\n```\n\n&nbsp;&nbsp;\n\n\\newpage")
 
 }
 ```

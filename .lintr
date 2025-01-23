@@ -1,0 +1,9 @@
+linters: linters_with_defaults(
+  assignment_linter = NULL,
+  indentation_linter = NULL,
+  commented_code_linter = NULL,
+  object_length_linter = NULL,
+  line_length_linter(100),
+  cyclocomp_linter(complexity_limit = 15),
+  undesirable_operator_linter = undesirable_operator_linter(
+    op = list("<-" = "Please use '=' for assignment")))

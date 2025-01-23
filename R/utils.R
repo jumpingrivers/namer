@@ -1,12 +1,12 @@
 # not elegant, given a part of a header,
 # transform it into the row of a tibble
-transform_params <- function(params){
-  params_string <- try(eval(parse(text = paste('alist(', quote_label(params), ')'))),
+transform_params <- function(params) {
+  params_string <- try(eval(parse(text = paste("alist(", quote_label(params), ")"))),
                silent = TRUE)
 
-  if(inherits(params_string, "try-error")){
+  if (inherits(params_string, "try-error")) {
     params <- sub(" ", ", ", params)
-    params_string <- eval(parse(text = paste('alist(', quote_label(params), ')')))
+    params_string <- eval(parse(text = paste("alist(", quote_label(params), ")")))
   }
 
   label <- parse_label(params_string[[1]])
@@ -16,15 +16,14 @@ transform_params <- function(params){
                  options = sub(params_string[[1]], "", params))
 }
 
-
-parse_label <- function(label){
+parse_label <- function(label) {
   language_name <- sub(" ", "\\/", label)
   language_name <- unlist(strsplit(language_name, "\\/"))
 
-  if(length(language_name) == 1){
+  if (length(language_name) == 1) {
     tibble::tibble(language = trimws(language_name[1]),
                    name = NA)
-  }else{
+  } else {
     tibble::tibble(language = trimws(language_name[1]),
                    name = trimws(language_name[2]))
   }
@@ -32,7 +31,7 @@ parse_label <- function(label){
 
 # from a chunk header
 # to a tibble with language, name, option, option values
-parse_chunk_header <- function(chunk_header){
+parse_chunk_header <- function(chunk_header) {
   # remove boundaries
   chunk_header <- gsub("```\\{", "", chunk_header)
   chunk_header <- gsub("\\}", "", chunk_header)
@@ -43,7 +42,7 @@ parse_chunk_header <- function(chunk_header){
 }
 
 digest_chunk_header <- function(chunk_header_index,
-                                lines){
+                                lines) {
   # parse the chunk header
   chunk_info <- parse_chunk_header(
     lines[chunk_header_index])
@@ -57,7 +56,7 @@ digest_chunk_header <- function(chunk_header_index,
 
 # helper to go from tibble with chunk info
 # to header to write in R Markdown
-re_write_headers <- function(info_df){
+re_write_headers <- function(info_df) {
   info_df %>%
     dplyr::group_by(.data$index) %>%
     dplyr::summarise(line = glue::glue("```{(language[1]) (name[1])(options)}",
@@ -69,12 +68,12 @@ re_write_headers <- function(info_df){
 }
 
 # helper to create a data.frame of chunk info
-get_chunk_info <- function(lines){
+get_chunk_info = function(lines) {
   # find which lines are chunk starts
-  chunk_header_indices <- which(grepl("^```\\{[a-zA-Z0-9]", lines))
+  chunk_header_indices = which(grepl("^```\\{[a-zA-Z0-9]", lines))
 
   # null if no chunks
-  if(length(chunk_header_indices) == 0){
+  if (length(chunk_header_indices) == 0L) {
     return(NULL)
   }
   # parse these chunk headers
@@ -87,7 +86,7 @@ get_chunk_info <- function(lines){
 # https://github.com/yihui/knitr/blob/2b3e617a700f6d236e22873cfff6cbc3568df568/R/parser.R#L148
 # quote the chunk label if necessary
 quote_label = function(x) {
-  x = gsub('^\\s*,?', '', x)
+  x = gsub("^\\s*,?", "", x)
   if (grepl('^\\s*[^\'"](,|\\s*$)', x)) {
     # <<a,b=1>>= ---> <<'a',b=1>>=
     x = gsub('^\\s*([^\'"])(,|\\s*$)', "'\\1'\\2", x)
@@ -99,8 +98,7 @@ quote_label = function(x) {
 }
 
 # from knitr:::escape_latex()
-clean_latex_special_characters <- function (x, newlines = FALSE, spaces = FALSE)
-{
+clean_latex_special_characters <- function(x, newlines = FALSE, spaces = FALSE) {
   x <- gsub("\\\\", "-", x)
   x <- gsub("([#$%&_{}])", "-", x)
   x <- gsub("\\\\textbackslash", "-", x)

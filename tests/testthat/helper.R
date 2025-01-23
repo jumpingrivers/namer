@@ -4,5 +4,4 @@ skip_if_not_r35 <- function() {
                    sep = ".")
 
   skip_if_not(R_version >= "3.5.0")
-
 }

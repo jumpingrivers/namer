@@ -50,3 +50,7 @@ remotes::install_github("jumpingrivers/namer")
 ## Code of Conduct
 
 Please note that the namer project is released with a [Contributor Code of Conduct](https://jumpingrivers.github.io/namer/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+---
+
+Maintained by [Jumping Rivers](https://www.jumpingrivers.com)
