@@ -1,3 +1,9 @@
+# namer 0.1.10
+
+## Bug fixes and minor improvements
+
+* Issues now use the Jumping Rivers organisation templates.
+
 # namer 0.1.9 _2025-01-23_
 
   * Allow to choose prefix for chunk names #2 (@statnmap, #30)
