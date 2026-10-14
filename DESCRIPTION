@@ -1,6 +1,6 @@
 Package: namer
 Title: Names Your 'R Markdown' Chunks
-Version: 0.1.9
+Version: 0.1.10
 Authors@R: c(
     person("Colin", "Gillespie", , "colin@jumpingrivers.com", role = c("aut", "cre")),
     person("Steph", "Locke", , "steph@itsalocke.com", role = "aut"),
